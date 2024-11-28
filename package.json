@@ -1,0 +1,58 @@
+{
+  "name": "heatmap-dashboard-table",
+  "private": false,
+  "version": "0.1.1",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "checkbox",
+    "heatmap-dashboard-table",
+    "material",
+    "material-ui",
+    "vue3",
+    "vue",
+    "vuejs"
+  ],
+  "files": [
+    "dist",
+    "src/components/"
+  ],
+  "main": "./dist/heatmap-dashboard-table.umd.cjs",
+  "module": "./dist/heatmap-dashboard-table.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/heatmap-dashboard-table.js",
+      "require": "./dist/heatmap-dashboard-table.umd.cjs"
+    },
+    "./dist/style.css": {
+      "import": "./dist/style.css",
+      "require": "./dist/style.css"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "axios": "^1.7.2",
+    "sass": "^1.62.1",
+    "vite-plugin-css-injected-by-js": "^3.5.1",
+    "vue": "^3.2.47"
+  },
+  "peerDependencies": {
+    "vue": "^3.0.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.1.0",
+    "path": "^0.12.7",
+    "typescript": "^5.0.2",
+    "vite": "^4.3.9",
+    "vite-plugin-dts": "^2.3.0",
+    "vue-tsc": "^1.4.2"
+  }
+}
