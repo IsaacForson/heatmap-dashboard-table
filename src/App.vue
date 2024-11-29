@@ -625,68 +625,92 @@ export default {
     },
 
     dragStart(index, event) {
-      if (this.columns[index].fixed) {
-        event.preventDefault()
-        return
-      }
+  if (this.columns[index].fixed) {
+    event.preventDefault();
+    return;
+  }
 
-      if (
-        event.target.classList.contains('new_dashboard_table_header-text') ||
-        event.target.classList.contains('new_dashboard_table_sort-indicator')
-      ) {
-        event.preventDefault();
-        return;
-      }
+  // Prevent dragging when interacting with sortable icons or header text
+  if (
+    event.target.classList.contains('new_dashboard_table_header-text') ||
+    event.target.classList.contains('new_dashboard_table_sort-indicator')
+  ) {
+    event.preventDefault();
+    return;
+  }
 
-      if (this.columns[index].fixed) {
-        event.preventDefault();
-        return;
-      }
+  this.isDragging = true;
+  this.draggedColumnIndex = index;
+  this.draggedColumn = this.columns[index];
 
-      this.isDragging = true
-      this.draggedColumnIndex = index
-      this.draggedColumn = this.columns[index]
+  // Add 'dragged-column' class to make the original column appear empty
+  this.$nextTick(() => {
+    const headerCells = document.querySelectorAll('.new_dashboard_table_header-cell');
+    const bodyCells = document.querySelectorAll(`.new_dashboard_table_table-cell:nth-child(${index + 1})`);
 
-      const ghost = document.createElement('div')
-      ghost.style.position = 'absolute'
-      ghost.style.top = '0'
-      ghost.style.pointerEvents = 'none'
-      ghost.style.opacity = '0.9'
-      ghost.style.zIndex = '1000'
+    headerCells[index].classList.add('dragged-column');
+    bodyCells.forEach(cell => {
+      cell.classList.add('dragged-column');
+    });
+  });
 
-      const headerCell = document.querySelector(`.new_dashboard_table_header-cell:nth-child(${index + 1})`)
-      const columnCells = Array.from(document.querySelectorAll(`.new_dashboard_table_table-cell:nth-child(${index + 1})`))
-      const tableContainer = document.querySelector('.new_dashboard_table_table-container')
-      const exactHeight = tableContainer.offsetHeight
+  // Create ghost column
+  const ghost = document.createElement('div');
+  ghost.style.position = 'absolute';
+  ghost.style.top = '0';
+  ghost.style.pointerEvents = 'none';
+  ghost.style.opacity = '0.9';
+  ghost.style.zIndex = '1000';
 
-      ghost.style.width = `${headerCell.offsetWidth}px`
-      ghost.style.height = `${exactHeight}px`
+  // Get elements for cloning
+  const headerCell = document.querySelector(`.new_dashboard_table_header-cell:nth-child(${index + 1})`);
+  const columnCells = Array.from(document.querySelectorAll(`.new_dashboard_table_table-cell:nth-child(${index + 1})`));
+  const tableContainer = document.querySelector('.new_dashboard_table_table-container');
+  const exactHeight = tableContainer.offsetHeight;
 
-      const clonedHeader = headerCell.cloneNode(true)
-      clonedHeader.style.height = headerCell.offsetHeight + 'px'
-      ghost.appendChild(clonedHeader)
+  // Set ghost dimensions
+  ghost.style.width = `${headerCell.offsetWidth}px`;
+  ghost.style.height = `${exactHeight}px`;
 
-      columnCells.forEach((cell, i) => {
-        const clone = cell.cloneNode(true)
-        clone.style.height = cell.offsetHeight + 'px'
-        if (i % 2 === 0) {
-          clone.style.backgroundColor = '#fbfbfb'
-        } else {
-          clone.style.backgroundColor = 'white'
-        }
-        ghost.appendChild(clone)
-      })
+  // Clone header
+  const clonedHeader = headerCell.cloneNode(true);
+  clonedHeader.style.height = headerCell.offsetHeight + 'px';
+  ghost.appendChild(clonedHeader);
 
-      document.body.appendChild(ghost)
-      event.dataTransfer.setDragImage(ghost, 0, 0)
+  // Clone body cells with alternating backgrounds
+  columnCells.forEach((cell, i) => {
+    const clone = cell.cloneNode(true);
+    clone.style.height = cell.offsetHeight + 'px';
+    if (i % 2 === 0) {
+      clone.style.backgroundColor = '#fbfbfb';
+    } else {
+      clone.style.backgroundColor = 'white';
+    }
+    ghost.appendChild(clone);
+  });
 
-      requestAnimationFrame(() => document.body.removeChild(ghost))
-    },
+  document.body.appendChild(ghost);
+  event.dataTransfer.setDragImage(ghost, 0, 0);
 
-    dragOver(event, index) {
-      if (index < 2 || this.draggedColumnIndex === index) return
-      this.dragOverColumnIndex = index
-    },
+  // Remove ghost after setting as drag image
+  requestAnimationFrame(() => document.body.removeChild(ghost));
+},
+
+dragOver(event, overIndex) {
+  event.preventDefault();
+
+  if (this.draggedColumnIndex === null || overIndex < 2) {
+    return;
+  }
+
+  if (this.draggedColumnIndex !== overIndex) {
+    const newColumns = [...this.columns];
+    const [draggedColumn] = newColumns.splice(this.draggedColumnIndex, 1);
+    newColumns.splice(overIndex, 0, draggedColumn);
+    this.columns = newColumns;
+    this.draggedColumnIndex = overIndex;
+  }
+},
 
     dragLeave() {
       this.dragOverColumnIndex = null
@@ -714,31 +738,26 @@ export default {
     return;
   }
 
-  // Create a new array from the current columns
   const newColumns = [...this.columns];
-  
-  // Remove the dragged column from its original position
   const [draggedColumn] = newColumns.splice(this.draggedColumnIndex, 1);
-  
-  // Insert it at the new position
   newColumns.splice(dropIndex, 0, draggedColumn);
-
-  // Update the columns array
   this.columns = newColumns;
   
-  // Reset drag states
   this.draggedColumnIndex = null;
   this.dragOverColumnIndex = null;
   this.isDragging = false;
 
-  // Update scrollable and save arrangement
-  this.$nextTick(() => {
-    const scrollableWrapper = document.querySelector('.new_dashboard_table_scrollable-wrapper');
-    if (scrollableWrapper) {
-      this.checkScrollable(scrollableWrapper);
-    }
-    this.saveColumnArrangement();
+  const headerCells = document.querySelectorAll('.new_dashboard_table_header-cell');
+  const bodyCells = document.querySelectorAll('.new_dashboard_table_table-cell');
+
+  headerCells.forEach(cell => {
+    cell.classList.remove('dragged-column');
   });
+  bodyCells.forEach(cell => {
+    cell.classList.remove('dragged-column');
+  });
+
+  this.saveColumnArrangement();
 },
 
     initResize(event) {
