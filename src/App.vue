@@ -199,7 +199,7 @@ export default {
   data() {
     return {
       videoSource: "https://player.vimeo.com/video/836887438?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
-      baseUrl : "https://stage1.heatmapcore.com/",
+      baseUrl : window.location.origin + '/',
       currentPage: 1,
       itemsPerPage: 6,
       showVideoModal: false,
@@ -963,10 +963,10 @@ body,
 }
 
 #new_dashboard_table_search-bar_input {
-  width: 100% !important;
-  padding: 0.75rem 1rem !important;
-  padding-left: 2.5rem !important;
-  font-size: 13px !important;
+  width: 160px !important;
+  padding:0px 1rem 0px 2.5rem !important;
+  height: 41.5px;
+  font-size: 14px !important;
   border: 1px solid #dddddd !important;
   border-radius: 10px !important;
   outline: none !important;
@@ -974,19 +974,22 @@ body,
   transition: border-color 0.3s !important;
 }
 
+
 #new_dashboard_table_search-bar_input:focus {
   border-color: #666 !important;
 }
 
 #new_dashboard_table_search-icon {
   position: absolute !important;
-  top: 50% !important;
+  top: 45% !important;
   left: 10px !important;
   transform: translateY(-50%) !important;
   width: 1rem !important;
   height: 1rem !important;
   color: #666 !important;
   pointer-events: none !important;
+
+  /* top:45% */
 }
 
 .new_dashboard_table_scrollable-wrapper {
