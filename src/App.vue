@@ -107,7 +107,7 @@
               <template v-if="column.field === 'heatmap'">
                 <div class="new_dashboard_table_heatmap-icon">
                   <a :href="row.heatmap">
-                    <img src="./assets/heatmap.png" alt="Heatmap">
+                    <img style="width: 32px; height: 32px;" src="./assets/heatmap.png" alt="Heatmap">
                   </a>
                 </div>
               </template>
@@ -138,6 +138,18 @@
               </template>
             </div>
           </div>
+          <div v-if="isEmptyState && !isLoading" class="new_dashboard_table_empty-state">
+        <div class="new_dashboard_table_empty-state-content">
+        <svg v-if="isSearchEmpty" width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M21 21L16.65 16.65M11 6C13.7614 6 16 8.23858 16 11M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z" stroke="#CBD5E0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <h3 style="margin: 0px; padding: 0px; padding-bottom: 10px;">{{ isSearchEmpty ? 'No results found' : '' }}</h3>
+        <p v-if="isSearchEmpty">
+          We couldn't find any results for "{{ searchQuery }}".
+          <br>Try adjusting your search to find what you're looking for.
+        </p>
+      </div>
+    </div>
         </div>
 
         <div class="new_dashboard_table_scroll-indicator" v-show="showScrollIndicator">
@@ -242,6 +254,14 @@ export default {
   },
 
   computed: {
+    isEmptyState() {
+    return !this.isLoading && this.tableData.length === 0;
+  },
+  
+  isSearchEmpty() {
+    return this.searchQuery && this.tableData.length === 0;
+  },
+
     paginatedData() {
       const start = (this.currentPage - 1) * this.itemsPerPage;
       const end = start + this.itemsPerPage;
@@ -844,8 +864,8 @@ body,
 .new_dashboard_table_main-section {
   /* margin-top: 10%; */
   border: 1px solid #dddddd;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
   border-radius: 10px;
 }
 
@@ -946,7 +966,7 @@ body,
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 1rem;
+  margin-bottom: 0.4rem;
   width: 100%;
 }
 
@@ -1087,7 +1107,7 @@ body,
   white-space: normal;
   line-height: 1.4;
   max-height: 2.8em;
-  padding: 0px 20px 10px 10px !important;
+  padding: 0px 20px 0px 10px !important;
   text-align: start;
   width: 100%;
 }
@@ -1279,7 +1299,7 @@ body,
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 2rem;
+  /* margin-top: 2rem; */
   gap: 0.5rem;
 }
 
@@ -1399,6 +1419,57 @@ body,
 
   to {
     opacity: 1;
+  }
+}
+
+/* empty data style */
+.new_dashboard_table_empty-state {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  width: 100%;
+  background: white;
+}
+
+.new_dashboard_table_empty-state-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  max-width: 400px;
+  animation: fadeIn 0.3s ease-in;
+}
+
+.new_dashboard_table_empty-state-content svg {
+  margin-bottom: 1.5rem;
+  opacity: 0.5;
+}
+
+.new_dashboard_table_empty-state-content h3 {
+  margin: 0;
+  color: #4A5568;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.new_dashboard_table_empty-state-content p {
+  margin: 0;
+  color: #718096;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 </style>

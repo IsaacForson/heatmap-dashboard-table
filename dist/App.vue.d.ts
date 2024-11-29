@@ -48,6 +48,8 @@ declare namespace _sfc_main {
         tableData: never[];
     };
     namespace computed {
+        function isEmptyState(): any;
+        function isSearchEmpty(): any;
         function paginatedData(): any;
         function totalPages(): any;
         function displayedPageNumbers(): number[];
