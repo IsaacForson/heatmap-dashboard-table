@@ -52,10 +52,13 @@
       </div>
       <div class="new_dashboard_table_scrollable-wrapper" @scroll="handleScroll">
         <div class="new_dashboard_table_table-header">
-          <div v-for="(column, colIndex) in columns" :key="column.id" class="new_dashboard_table_header-cell" :class="{
+          <div v-for="(column, colIndex) in columns" :key="column.id" 
+          class="new_dashboard_table_header-cell" 
+          :class="{
             'new_dashboard_table_fixed-column': column.fixed,
             'new_dashboard_table_page-path': column.field === 'screenshot_url',
             'new_dashboard_table_heatmap': column.field === 'heatmap',
+            'new_dashboard_table_column-dragging': isDragging && draggedColumnIndex === colIndex,
           }" :style="getColumnStyle(column)" draggable="true" @dragstart="dragStart(colIndex, $event)"
             @dragend="dragEnd" @dragover.prevent="dragOver($event, colIndex)" @dragleave="dragLeave"
             @drop="drop($event, colIndex)">
@@ -861,7 +864,7 @@ body,
 }
 
 .new_dashboard_table_header-cell {
-  cursor: grab;
+  cursor: grabbing;
   position: relative;
 }
 
@@ -1057,7 +1060,7 @@ body,
   font-weight: 500;
   flex: 1;
   min-width: 120px;
-  cursor: grab;
+  cursor: grabbing;
   user-select: none;
   position: relative;
   display: flex;
@@ -1105,7 +1108,7 @@ body,
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: grab;
+  cursor: grabbing;
   position: relative;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -1134,6 +1137,15 @@ body,
 .new_dashboard_table_column-dragging {
   border-left: 2px solid #eaeaea;
   border-right: 2px solid #eaeaea;
+  cursor: grabbing;
+  box-shadow: 5px 5px 15px solid brack
+  ;
+}
+
+.new_dashboard_table_header-cell.new_dashboard_table_column-dragging {
+  border-left: 2px solid #eaeaea;
+  border-right: 2px solid #eaeaea;
+  cursor: grabbing;
 }
 
 .new_dashboard_table_dragging {

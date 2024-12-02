@@ -87,7 +87,7 @@ declare namespace _sfc_main {
         function handleViewTutorial(): void;
         function getColumnStyle(column: any): {};
         function dragStart(index: any, event: any): void;
-        function dragOver(event: any, index: any): void;
+        function dragOver(event: any, overIndex: any): void;
         function dragLeave(): void;
         function dragEnd(): void;
         function drop(event: any, dropIndex: any): void;
