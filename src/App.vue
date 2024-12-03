@@ -730,17 +730,24 @@ dragOver(event, overIndex) {
     },
 
     drop(event, dropIndex) {
+  console.log('Drop triggered:', { dropIndex });
   event.preventDefault();
+
   if (
     this.draggedColumnIndex === null ||
     this.draggedColumnIndex < 0 ||
     this.columns[dropIndex].fixed ||
-    dropIndex < 2 ||
-    this.draggedColumnIndex === dropIndex
+    dropIndex < 2
   ) {
+    console.log('Drop prevented due to conditions:', {
+      draggedColumnIndex: this.draggedColumnIndex,
+      isFixed: this.columns[dropIndex]?.fixed,
+      dropIndex
+    });
     return;
   }
 
+  console.log('Drop proceeding with reorder');
   const newColumns = [...this.columns];
   const [draggedColumn] = newColumns.splice(this.draggedColumnIndex, 1);
   newColumns.splice(dropIndex, 0, draggedColumn);
@@ -760,6 +767,7 @@ dragOver(event, overIndex) {
     cell.classList.remove('dragged-column');
   });
 
+  console.log('About to save column arrangement');
   this.saveColumnArrangement();
 },
 
