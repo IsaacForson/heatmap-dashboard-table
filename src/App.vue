@@ -5,31 +5,37 @@
         <h2 style="margin: 0; padding: 0; margin-bottom: 5px;">Page Performance Overview</h2>
         <div class="new_dashboard_table_icon-tooltip-wrapper" @mouseleave="handleTooltipLeave"
           @mouseenter="toggleTooltip('iconTooltip', $event)">
-          <svg style="cursor: pointer; margin-left: 10px;" width="24" viewBox="0 0 24 24" fill="none"
+          <svg @click="togglePerformanceTooltip($event)" 
+            style="cursor: pointer; margin-left: 10px;" 
+            width="24" 
+            viewBox="0 0 24 24" 
+            fill="none"
             xmlns="http://www.w3.org/2000/svg">
             <path
               d="M9.09 9C9.3251 8.33167 9.78915 7.76811 10.4 7.40913C11.0108 7.05016 11.7289 6.91894 12.4272 7.03871C13.1255 7.15849 13.7588 7.52152 14.2151 8.06353C14.6713 8.60553 14.9211 9.29152 14.92 10C14.92 12 11.92 13 11.92 13M12 17H12.01M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"
               stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
-          <div v-if="activeTooltip === 'iconTooltip'"
-            class="new_dashboard_table_tooltip new_dashboard_table_tooltip-enter"
-            :style="{ ...tooltipStyle, width: '260px', height: '160px' }">
-            <div>
-              <span style="font-size: 14px; font-weight: 700;">Page Performance</span>
-              <p style="font-size: 12px; padding-top: 0;">Learn how to use your analytics to find and view the pages of
-                your website that have the most insights.</p>
-              <button @click="handleViewTutorial"
-                style="background-color: transparent; border: 1px solid #dddddd; font-size: 12px; padding: 8px 12px; border-radius: 6px; cursor: pointer;">View
-                Tutorial</button>
-            </div>
-            <div class="new_dashboard_table_tooltip-arrow"></div>
-          </div>
           <div v-if="activeTooltip && activeTooltip !== 'iconTooltip'" class="new_dashboard_table_tooltip"
             :style="tooltipStyle">
             {{ columns.find(col => col.id === activeTooltip)?.fullName }}
             <div class="new_dashboard_table_tooltip-arrow"></div>
           </div>
         </div>
+        <div class="new_dashboard_table_icon-tooltip-wrapper">
+        <div v-if="showPerformanceTooltip"
+          class="performance_tooltip"
+          :style="performanceTooltipStyle">
+          <div>
+            <span style="font-size: 14px; font-weight: 700;">Page Performance</span>
+            <p style="font-size: 12px; padding-top: 0;">Learn how to use your analytics to find and view the pages of
+              your website that have the most insights.</p>
+            <button @click="handleViewTutorial"
+              style="background-color: transparent; border: 1px solid #dddddd; font-size: 12px; padding: 8px 12px; border-radius: 6px; cursor: pointer;">View
+              Tutorial</button>
+          </div>
+          <div class="new_dashboard_table_tooltip-arrow"></div>
+        </div>
+      </div>
       </div>
       <div class="new_dashboard_table_search-bar-container">
         <div class="new_dashboard_table_search-bar">
@@ -213,6 +219,11 @@ export default {
   },
   data() {
     return {
+      showPerformanceTooltip: false,
+    performanceTooltipStyle: {
+      top: '0px',
+      left: '0px',
+    },
       videoSource: "https://player.vimeo.com/video/836887438?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
       baseUrl : window.location.origin + '/',
       currentPage: 1,
@@ -300,6 +311,7 @@ export default {
   },
 
   mounted() {
+    document.addEventListener('click', this.handleClickOutside);
     this.fetchSavedColumnArrangement().then(() => {
       this.fetchHeatmapData();
     });
@@ -314,6 +326,7 @@ export default {
   },
 
   beforeUnmount() {
+    document.removeEventListener('click', this.handleClickOutside);
     window.removeEventListener('beforeunload', this.handlePageReload);
     window.removeEventListener('mousemove', this.handleResize)
     window.removeEventListener('mouseup', this.stopResize)
@@ -324,6 +337,34 @@ export default {
     }
   },
   methods: {
+    togglePerformanceTooltip(event) {
+    this.showPerformanceTooltip = !this.showPerformanceTooltip;
+    
+    if (this.showPerformanceTooltip) {
+      const rect = event.target.getBoundingClientRect();
+      const wrapper = document.querySelector('.new_dashboard_table_table-text-cover');
+      const wrapperRect = wrapper.getBoundingClientRect();
+      
+      this.performanceTooltipStyle = {
+        top: `-191px`,
+        left: `-147px`,
+        width: '260px',
+        height: '160px'
+      };
+    }
+  },
+
+  // Add click outside handler to mounted()
+  handleClickOutside(event) {
+    const tooltip = document.querySelector('.performance_tooltip');
+    const icon = document.querySelector('.new_dashboard_table_icon-tooltip-wrapper svg');
+    
+    if (this.showPerformanceTooltip && 
+        !tooltip?.contains(event.target) && 
+        !icon?.contains(event.target)) {
+      this.showPerformanceTooltip = false;
+    }
+  },
     handlePageReload() {
       this.fetchSavedColumnArrangement();
     },
@@ -351,7 +392,7 @@ export default {
           this.columns = result.data;
         }
       } catch (error) {
-        console.error('Error fetching saved column arrangement:', error);
+        // console.error('Error fetching saved column arrangement:', error);
       }
     },
 
@@ -373,7 +414,7 @@ export default {
         }
 
       } catch (error) {
-        console.error('Error saving column arrangement:', error);
+        // console.error('Error saving column arrangement:', error);
       }
     },
 
@@ -491,7 +532,7 @@ export default {
         });
 
       } catch (error) {
-        console.error('Error fetching heatmap data:', error)
+        // console.error('Error fetching heatmap data:', error)
       } finally {
         this.isLoading = false
       }
@@ -606,6 +647,7 @@ export default {
 
     handleViewTutorial() {
       this.hideTooltip()
+      this.showPerformanceTooltip = false
       this.showVideoModal = true
     },
 
@@ -730,7 +772,6 @@ dragOver(event, overIndex) {
     },
 
     drop(event, dropIndex) {
-  console.log('Drop triggered:', { dropIndex });
   event.preventDefault();
 
   if (
@@ -739,7 +780,7 @@ dragOver(event, overIndex) {
     this.columns[dropIndex].fixed ||
     dropIndex < 2
   ) {
-    console.log('Drop prevented due to conditions:', {
+    console.log('Drop prevented', {
       draggedColumnIndex: this.draggedColumnIndex,
       isFixed: this.columns[dropIndex]?.fixed,
       dropIndex
@@ -747,7 +788,6 @@ dragOver(event, overIndex) {
     return;
   }
 
-  console.log('Drop proceeding with reorder');
   const newColumns = [...this.columns];
   const [draggedColumn] = newColumns.splice(this.draggedColumnIndex, 1);
   newColumns.splice(dropIndex, 0, draggedColumn);
@@ -767,7 +807,6 @@ dragOver(event, overIndex) {
     cell.classList.remove('dragged-column');
   });
 
-  console.log('About to save column arrangement');
   this.saveColumnArrangement();
 },
 
@@ -1511,4 +1550,25 @@ body,
     transform: translateY(0);
   }
 }
+
+/* tootip issue */
+.new_dashboard_table_icon-tooltip-wrapper {
+  position: relative;
+}
+
+.performance_tooltip {
+  position: absolute;
+  background: white;
+  padding: 18px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 10000;
+  white-space: wrap;
+  color: #333;
+  border: 1px solid #eee;
+  text-align: center;
+  transform-origin: top center;
+}
+
 </style>
