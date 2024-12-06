@@ -183,12 +183,12 @@
     </div>
 
     <div class="new_dashboard_table_pagination-container">
-  <button 
-    class="new_dashboard_table_pagination-button new_dashboard_table_prev" 
-    @click="previousPageGroup"
-    :disabled="isFirstGroup">
-    ← Prev
-  </button>
+      <button 
+  class="new_dashboard_table_pagination-button new_dashboard_table_prev" 
+  @click="previousPage"
+  :disabled="currentPage === 1">
+  ← Prev
+</button>
   <div class="new_dashboard_table_pagination-numbers">
   <span 
     v-for="page in displayedPageNumbers" 
@@ -202,12 +202,12 @@
     {{ page === 'ellipsis' ? '...' : page }}
   </span>
 </div>
-  <button 
-    class="new_dashboard_table_pagination-button new_dashboard_table_next" 
-    @click="nextPageGroup"
-    :disabled="isLastGroup">
-    Next →
-  </button>
+<button 
+  class="new_dashboard_table_pagination-button new_dashboard_table_next" 
+  @click="nextPage"
+  :disabled="currentPage === totalPages">
+  Next →
+</button>
 </div>
   </section>
   <VideoModal :show="showVideoModal" :video-source="videoSource" @close="showVideoModal = false" />
@@ -473,14 +473,12 @@ export default {
     },
 
     previousPageGroup() {
-      const newStart = (this.currentGroup - 1) * 10 + 1;
-      this.changePage(newStart);
-    },
+  this.previousPage();
+},
 
-    nextPageGroup() {
-      const newStart = (this.currentGroup + 1) * 10 + 1;
-      this.changePage(newStart);
-    },
+nextPageGroup() {
+  this.nextPage();
+},
 
     changePage(page) {
       if (page >= 1 && page <= this.totalPages) {
