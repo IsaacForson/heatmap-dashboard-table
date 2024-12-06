@@ -190,15 +190,18 @@
     ← Prev
   </button>
   <div class="new_dashboard_table_pagination-numbers">
-    <span 
-      v-for="page in displayedPageNumbers" 
-      :key="page"
-      class="new_dashboard_table_pagination-number"
-      :class="{ 'new_dashboard_table_active': currentPage === page }"
-      @click="changePage(page)">
-      {{ page }}
-    </span>
-  </div>
+  <span 
+    v-for="page in displayedPageNumbers" 
+    :key="page"
+    class="new_dashboard_table_pagination-number"
+    :class="{
+      'new_dashboard_table_active': currentPage === page,
+      'new_dashboard_table_ellipsis': page === 'ellipsis'
+    }"
+    @click="page !== 'ellipsis' && changePage(page)">
+    {{ page === 'ellipsis' ? '...' : page }}
+  </span>
+</div>
   <button 
     class="new_dashboard_table_pagination-button new_dashboard_table_next" 
     @click="nextPageGroup"
@@ -287,11 +290,38 @@ export default {
     },
 
     displayedPageNumbers() {
-      const currentGroup = Math.floor((this.currentPage - 1) / 10);
-      const start = currentGroup * 10 + 1;
-      const end = Math.min(start + 9, this.totalPages);
-      return Array.from({ length: end - start + 1 }, (_, i) => start + i);
-    },
+  if (this.totalPages <= 9) {
+    // If total pages is 9 or less, show all numbers
+    return Array.from({ length: this.totalPages }, (_, i) => i + 1);
+  }
+
+  if (this.currentPage <= 5) {
+    // If we're in the first 5 pages, show 1-9, ..., lastPage
+    return [
+      ...Array.from({ length: 9 }, (_, i) => i + 1),
+      'ellipsis',
+      this.totalPages
+    ];
+  }
+
+  if (this.currentPage > this.totalPages - 5) {
+    // If we're in the last 5 pages, show firstPage, ..., last 9 pages
+    return [
+      1,
+      'ellipsis',
+      ...Array.from({ length: 9 }, (_, i) => this.totalPages - 8 + i)
+    ];
+  }
+
+  // Otherwise show firstPage, ..., currentPage-4 to currentPage+4, ..., lastPage
+  return [
+    1,
+    'ellipsis',
+    ...Array.from({ length: 9 }, (_, i) => this.currentPage - 4 + i),
+    'ellipsis',
+    this.totalPages
+  ];
+},
 
     currentGroup() {
       return Math.floor((this.currentPage - 1) / 10);
@@ -565,16 +595,22 @@ export default {
     },
 
     previousPage() {
-      if (this.currentPage > 1) {
-        this.currentPage--;
-      }
-    },
+  if (this.currentPage > 1) {
+    this.changePage(this.currentPage - 1);
+  }
+},
 
-    nextPage() {
-      if (this.currentPage < this.totalPages) {
-        this.currentPage++;
-      }
-    },
+nextPage() {
+  if (this.currentPage < this.totalPages) {
+    this.changePage(this.currentPage + 1);
+  }
+},
+
+changePage(page) {
+  if (page >= 1 && page <= this.totalPages) {
+    this.currentPage = page;
+  }
+},
 
     toggleSort(column) {
       if (!column.sortable) return
@@ -1436,6 +1472,15 @@ body,
 
 .new_dashboard_table_pagination-number:hover:not(.new_dashboard_table_active) {
   background-color: #f0f0f0;
+}
+
+.new_dashboard_table_pagination-number.new_dashboard_table_ellipsis {
+  cursor: default;
+  background-color: transparent;
+}
+
+.new_dashboard_table_pagination-number.new_dashboard_table_ellipsis:hover {
+  background-color: transparent;
 }
 
 .new_dashboard_table_scroll-indicator {
