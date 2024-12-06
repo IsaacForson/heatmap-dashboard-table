@@ -304,7 +304,7 @@ export default {
     ];
   }
 
-  if (this.currentPage > this.totalPages - 5) {
+  if (this.currentPage > this.totalPages - 3) {
     // If we're in the last 5 pages, show firstPage, ..., last 9 pages
     return [
       1,
@@ -317,7 +317,7 @@ export default {
   return [
     1,
     'ellipsis',
-    ...Array.from({ length: 9 }, (_, i) => this.currentPage - 4 + i),
+    ...Array.from({ length: 7 }, (_, i) => this.currentPage - 3 + i),
     'ellipsis',
     this.totalPages
   ];
