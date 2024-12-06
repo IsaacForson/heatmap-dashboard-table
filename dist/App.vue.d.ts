@@ -57,7 +57,7 @@ declare namespace _sfc_main {
         function isSearchEmpty(): any;
         function paginatedData(): any;
         function totalPages(): any;
-        function displayedPageNumbers(): number[];
+        function displayedPageNumbers(): any;
         function currentGroup(): any;
         function isFirstGroup(): any;
         function isLastGroup(): any;
@@ -78,6 +78,7 @@ declare namespace _sfc_main {
         function handleResize(event: any): void;
         function previousPageGroup(): void;
         function nextPageGroup(): void;
+        function changePage(page: any): void;
         function changePage(page: any): void;
         function handleScroll(event: any): void;
         function formatDeviceType(type: any): "Desktop" | "Tablet" | "Mobile" | "Unknown";

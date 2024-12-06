@@ -1,15 +1,15 @@
-(function(){"use strict";try{if(typeof document<"u"){var a=document.createElement("style");a.appendChild(document.createTextNode('@import"https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap";.new_dashboard_table_modal-overlay[data-v-9cc025fb]{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);display:flex;align-items:center;justify-content:center;z-index:1000}.new_dashboard_table_modal-content[data-v-9cc025fb]{background:white;border-radius:8px;padding:20px;width:90%;max-width:400px;max-height:90vh;overflow-y:auto}.new_dashboard_table_modal-header[data-v-9cc025fb]{display:flex;justify-content:space-between;align-items:start;margin-bottom:20px;border-bottom:1px solid #eaeaea}.new_dashboard_table_close-button[data-v-9cc025fb]{background:none;border:none;font-size:24px;cursor:pointer}.new_dashboard_table_video-container[data-v-9cc025fb]{position:relative;width:100%;padding-top:56.25%;margin-bottom:20px}.new_dashboard_table_video-player[data-v-9cc025fb]{position:absolute;top:0;left:0;width:100%;height:100%;border-radius:4px}.new_dashboard_table_modal-text[data-v-9cc025fb]{margin-bottom:20px;font-size:13px;line-height:20px}.new_dashboard_table_modal-footer[data-v-9cc025fb]{display:flex;justify-content:flex-end;border-top:1px solid #eaeaea;padding-top:15px}.new_dashboard_table_done-button[data-v-9cc025fb]{background:#2EC666;color:#fff;border:none;padding:8px 16px;border-radius:4px;cursor:pointer;display:flex;align-items:center}.new_dashboard_table_done-button[data-v-9cc025fb]:hover{background:#27B45D}.new_dashboard_table_modal-fade-enter-active[data-v-9cc025fb],.new_dashboard_table_modal-fade-leave-active[data-v-9cc025fb]{transition:opacity .3s ease}.new_dashboard_table_modal-fade-enter-from[data-v-9cc025fb],.new_dashboard_table_modal-fade-leave-to[data-v-9cc025fb]{opacity:0}.new_dashboard_table_check[data-v-9cc025fb]{width:20px}[data-v-dfa04844],[data-v-dfa04844]:before,[data-v-dfa04844]:after{box-sizing:border-box}body[data-v-dfa04844],[data-v-dfa04844]{font-family:Inter,-apple-system,BlinkMacSystemFont,sans-serif}.new_dashboard_table_header-content[data-v-dfa04844]{display:flex;align-items:center;justify-content:center;width:100%;padding:0 8px}.new_dashboard_table_header-text[data-v-dfa04844],.new_dashboard_table_sort-indicator[data-v-dfa04844]{pointer-events:auto}.new_dashboard_table_header-cell[data-v-dfa04844]{cursor:grabbing;position:relative}.new_dashboard_table_header-cell[data-v-dfa04844]:before{content:"";position:absolute;top:0;left:0;right:0;bottom:0;z-index:1}.new_dashboard_table_main-section[data-v-dfa04844]{border:1px solid #dddddd;padding-top:15px;padding-bottom:15px;border-radius:10px}.new_dashboard_table_table-text-cover[data-v-dfa04844]{display:flex;align-items:center;padding-left:28px}.new_dashboard_table_table-text-cover>h2[data-v-dfa04844]{font-size:16px;font-weight:700}.new_dashboard_table_header-text[data-v-dfa04844]{position:relative;z-index:2;cursor:pointer;display:flex}.new_dashboard_table_table-container[data-v-dfa04844]{width:100%;position:relative;background:white;overflow:hidden;border-top:1px solid #eaeaea;margin-bottom:20px;min-height:400px;display:flex;flex-direction:column}.new_dashboard_table_loading-overlay[data-v-dfa04844]{position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(224,223,223,.5);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);display:flex;flex-direction:column;justify-content:center;align-items:center;z-index:1000}@keyframes tooltipScaleIn-dfa04844{0%{opacity:0;transform:translate(-50%) scale(.7)}to{opacity:1;transform:translate(-50%) scale(1)}}.new_dashbaord_table_loader_cover[data-v-dfa04844]{background-color:#fff;padding:14px 35px;border-radius:8px}.new_dashboard_table_loader_img[data-v-dfa04844]{width:50px;height:50px}.new_dashboard_table_loading-text[data-v-dfa04844]{margin-top:13px;font-size:12px;color:#333}.new_dashboard_table_spinner[data-v-dfa04844]{width:50px;height:50px;border:3px solid #f3f3f3;border-top:3px solid #2ec666;border-radius:50%;animation:spin-dfa04844 1s linear infinite}@keyframes spin-dfa04844{0%{transform:rotate(0)}to{transform:rotate(360deg)}}.new_dashboard_table_table-header-container[data-v-dfa04844]{display:flex;align-items:center;justify-content:space-between;margin-bottom:.4rem;width:100%}.new_dashboard_table_search-bar-container[data-v-dfa04844]{display:flex;align-items:center;padding-right:28px}.new_dashboard_table_search-bar[data-v-dfa04844]{position:relative;width:100%;max-width:270px}#new_dashboard_table_search-bar_input[data-v-dfa04844]{width:160px!important;padding:0px 1rem 0px 2.5rem!important;height:41.5px;font-size:14px!important;border:1px solid #dddddd!important;border-radius:10px!important;outline:none!important;font-weight:lighter!important;transition:border-color .3s!important}#new_dashboard_table_search-bar_input[data-v-dfa04844]:focus{border-color:#666!important}#new_dashboard_table_search-icon[data-v-dfa04844]{position:absolute!important;top:45%!important;left:10px!important;transform:translateY(-50%)!important;width:1rem!important;height:1rem!important;color:#666!important;pointer-events:none!important}.new_dashboard_table_scrollable-wrapper[data-v-dfa04844]{width:100%;overflow-x:auto;overflow-y:hidden;flex:1;display:flex;flex-direction:column;position:relative}.new_dashboard_table_table-header[data-v-dfa04844]{display:flex;background:white;position:sticky;top:0;z-index:3;white-space:nowrap;border-bottom:1px solid #eee}.new_dashboard_table_header-cell[data-v-dfa04844]{padding:16px 0;height:54px;font-weight:500;flex:1;min-width:120px;cursor:grabbing;-webkit-user-select:none;user-select:none;position:relative;display:flex;align-items:center;justify-content:center;color:#333;font-size:12px;background:white;transition:background .3s,transform .3s}.new_dashboard_table_header-cell[data-v-dfa04844]:active{cursor:grabbing}.new_dashboard_table_table-body[data-v-dfa04844]{white-space:nowrap;flex:1;display:flex;flex-direction:column;min-width:fit-content}.new_dashboard_table_table-row[data-v-dfa04844]{display:flex;border-bottom:1px solid #eee;background-color:#fbfbfb;width:100%;min-width:fit-content}.new_dashboard_table_table-row.new_dashboard_table_striped[data-v-dfa04844]{background-color:#fff}.new_dashboard_table_table-cell[data-v-dfa04844]{padding:16px 10px 16px 5px;height:54px;flex:1;min-width:120px;overflow:hidden;text-overflow:ellipsis;font-size:13px;color:#333;display:flex;align-items:center;justify-content:center;cursor:grabbing;position:relative;transition:transform .2s ease,box-shadow .2s ease}.new_dashboard_table_table-cell.new_dashboard_table_page-path[data-v-dfa04844]{justify-content:center}#new_dashboard_table_page-url[data-v-dfa04844]{color:#666;display:-webkit-box;display:box;-webkit-line-clamp:2;line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis;white-space:normal;line-height:1.4;max-height:2.8em;padding:0 20px 0 10px!important;text-align:start;width:100%}.new_dashboard_table_column-dragging[data-v-dfa04844]{border-left:2px solid #eaeaea;border-right:2px solid #eaeaea;cursor:grabbing;box-shadow:5px 5px 15px solid brack}.new_dashboard_table_header-cell.new_dashboard_table_column-dragging[data-v-dfa04844]{border-left:2px solid #eaeaea;border-right:2px solid #eaeaea;cursor:grabbing}.new_dashboard_table_dragging[data-v-dfa04844]{opacity:1;transform:none;box-shadow:none}.new_dashboard_table_fixed-column[data-v-dfa04844]{position:sticky;z-index:4;cursor:default!important;display:flex;justify-content:center;background-color:inherit}.new_dashboard_table_table-row .new_dashboard_table_fixed-column[data-v-dfa04844]{background-color:inherit}.new_dashboard_table_header-cell.new_dashboard_table_page-path[data-v-dfa04844],.new_dashboard_table_table-cell.new_dashboard_table_page-path[data-v-dfa04844]{border-left:1px solid #eaeaea}.new_dashboard_table_fixed-column[data-v-dfa04844]:nth-child(1){left:0;z-index:5;width:100px;min-width:100px}.new_dashboard_table_fixed-column[data-v-dfa04844]:nth-child(2){left:100px;z-index:5;width:200px;min-width:200px}.new_dashboard_table_sort-indicator[data-v-dfa04844]{margin-left:8px;color:#999;font-size:12px;cursor:pointer;display:flex;align-items:center;transition:transform .3s ease;position:relative;z-index:2}.new_dashboard_table_reorder-indicator[data-v-dfa04844]{margin-right:8px;color:#999;font-size:12px;cursor:pointer;display:flex;align-items:center;transition:transform .3s ease;position:relative;z-index:2}.new_dashboard_table_sort-indicator svg[data-v-dfa04844]{transition:transform .3s ease}.new_dashboard_table_sort-indicator[data-v-dfa04844]:hover{opacity:.8}.new_dashboard_table_resizer-column[data-v-dfa04844]{position:absolute;right:0;top:0;height:100%;width:9px;background:transparent;cursor:col-resize;z-index:6;display:flex;align-items:center;justify-content:center}.new_dashboard_table_resizer-column[data-v-dfa04844]:after{content:"";position:absolute;left:50%;top:0;bottom:0;width:9px;background-color:#eaeaea;transform:translate(-50%);transition:background-color .2s ease;z-index:6}.new_dashboard_table_resizer-column svg[data-v-dfa04844]{position:absolute;right:0;top:50%;transform:translateY(-50%);z-index:7;pointer-events:none;padding:0 2px 0 0}.new_dashboard_table_table-cell.new_dashboard_table_column-drag-animation[data-v-dfa04844]{transition:transform .2s ease}.new_dashboard_table_dragging-column[data-v-dfa04844]{background:#f5f5f5;box-shadow:0 0 10px #0000001a}.new_dashboard_table_heatmap-icon img[data-v-dfa04844]{width:24px;height:24px}.new_dashboard_table_tooltip[data-v-dfa04844]{position:fixed;transform:translate(-50%) scale(1);background:white;padding:18px 12px;border-radius:4px;font-size:12px;box-shadow:0 2px 8px #00000026;z-index:10000;white-space:wrap;color:#333;border:1px solid #eee;width:150px;height:70px;text-align:center;display:flex;justify-content:center;align-items:center;font-weight:400;line-height:20px;animation:tooltipScaleIn-dfa04844 .2s cubic-bezier(.4,0,.2,1);transform-origin:top center;opacity:1}.new_dashboard_table_tooltip-arrow[data-v-dfa04844]{position:absolute;bottom:-6px;left:50%;transform:translate(-50%);width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-top:6px solid white;filter:drop-shadow(0 1px 1px rgba(0,0,0,.1))}.new_dashboard_table_currency[data-v-dfa04844]:before{content:"$ ";color:#666}.new_dashboard_table_percentage[data-v-dfa04844]:after{content:" %";color:#666}.new_dashboard_table_table-row[data-v-dfa04844]:hover,.new_dashboard_table_table-row.new_dashboard_table_striped[data-v-dfa04844]:hover{background-color:#f5f5f5!important;transition:.1s ease-in}.new_dashboard_table_pagination-container[data-v-dfa04844]{display:flex;align-items:center;justify-content:center;gap:.5rem}.new_dashboard_table_pagination-button[data-v-dfa04844]{padding:.5rem 1rem;border:1px solid #ccc;border-radius:5px;background-color:#fff;color:#333;font-size:13px;cursor:pointer;transition:background-color .3s ease,color .3s ease}.new_dashboard_table_pagination-button[data-v-dfa04844]:hover{background-color:#f0f0f0}.new_dashboard_table_pagination-numbers[data-v-dfa04844]{display:flex;gap:.5rem}.new_dashboard_table_pagination-number[data-v-dfa04844]{padding:.5rem;height:30px;width:30px;display:flex;justify-content:center;align-items:center;border-radius:50%;background-color:#fff;color:#333;font-size:14px;cursor:pointer;transition:background-color .3s ease,color .3s ease}.new_dashboard_table_pagination-number.new_dashboard_table_active[data-v-dfa04844]{background-color:#2ec666;color:#fff}.new_dashboard_table_pagination-number[data-v-dfa04844]:hover{background-color:#f0f0f0}.new_dashboard_table_pagination-button[data-v-dfa04844]:disabled{opacity:.5;cursor:not-allowed}.new_dashboard_table_pagination-button[data-v-dfa04844]:not(:disabled):hover{background-color:#f0f0f0}.new_dashboard_table_pagination-number[data-v-dfa04844]:hover:not(.new_dashboard_table_active){background-color:#f0f0f0}.new_dashboard_table_scroll-indicator[data-v-dfa04844]{position:absolute;right:0;top:0;bottom:0;width:120px;pointer-events:none;z-index:5;background:linear-gradient(90deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.9) 40%,rgba(255,255,255,1) 100%);display:flex;align-items:center;justify-content:flex-end;opacity:1;transition:opacity .3s ease-out}.new_dashboard_table_scroll-indicator.fade-out[data-v-dfa04844]{opacity:0}.new_dashboard_table_scroll-indicator-content[data-v-dfa04844]{display:flex;flex-direction:column;align-items:center;gap:8px;margin-right:20px;color:#666;font-size:14px}.new_dashboard_table_scroll-indicator svg[data-v-dfa04844]{animation:bounce-dfa04844 1.5s infinite}@keyframes bounce-dfa04844{0%,20%,50%,80%,to{transform:translate(0)}40%{transform:translate(5px)}60%{transform:translate(3px)}}@keyframes fadeIn-dfa04844{0%{opacity:0}to{opacity:1}}.new_dashboard_table_empty-state[data-v-dfa04844]{display:flex;justify-content:center;align-items:center;min-height:400px;width:100%;background:white}.new_dashboard_table_empty-state-content[data-v-dfa04844]{display:flex;flex-direction:column;align-items:center;text-align:center;padding:2rem;max-width:400px;animation:fadeIn-dfa04844 .3s ease-in}.new_dashboard_table_empty-state-content svg[data-v-dfa04844]{margin-bottom:1.5rem;opacity:.5}.new_dashboard_table_empty-state-content h3[data-v-dfa04844]{margin:0;color:#4a5568;font-size:1.25rem;font-weight:600;margin-bottom:1rem}.new_dashboard_table_empty-state-content p[data-v-dfa04844]{margin:0;color:#718096;font-size:.875rem;line-height:1.5}@keyframes fadeIn-dfa04844{0%{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}.new_dashboard_table_icon-tooltip-wrapper[data-v-dfa04844]{position:relative}.performance_tooltip[data-v-dfa04844]{position:absolute;background:white;padding:18px 12px;border-radius:4px;font-size:12px;box-shadow:0 2px 8px #00000026;z-index:10000;white-space:wrap;color:#333;border:1px solid #eee;text-align:center;transform-origin:top center}')),document.head.appendChild(a)}}catch(e){console.error("vite-plugin-css-injected-by-js",e)}})();
-import { openBlock as o, createBlock as B, Transition as c, withCtx as K, createElementBlock as r, createElementVNode as E, createCommentVNode as g, pushScopeId as p, popScopeId as k, resolveComponent as y, Fragment as L, normalizeStyle as q, createTextVNode as v, toDisplayString as h, withDirectives as Q, vModelText as x, normalizeClass as l, renderList as C, withModifiers as u, vShow as Y, createVNode as M, createStaticVNode as b } from "vue";
+(function(){"use strict";try{if(typeof document<"u"){var a=document.createElement("style");a.appendChild(document.createTextNode('@import"https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap";.new_dashboard_table_modal-overlay[data-v-9cc025fb]{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);display:flex;align-items:center;justify-content:center;z-index:1000}.new_dashboard_table_modal-content[data-v-9cc025fb]{background:white;border-radius:8px;padding:20px;width:90%;max-width:400px;max-height:90vh;overflow-y:auto}.new_dashboard_table_modal-header[data-v-9cc025fb]{display:flex;justify-content:space-between;align-items:start;margin-bottom:20px;border-bottom:1px solid #eaeaea}.new_dashboard_table_close-button[data-v-9cc025fb]{background:none;border:none;font-size:24px;cursor:pointer}.new_dashboard_table_video-container[data-v-9cc025fb]{position:relative;width:100%;padding-top:56.25%;margin-bottom:20px}.new_dashboard_table_video-player[data-v-9cc025fb]{position:absolute;top:0;left:0;width:100%;height:100%;border-radius:4px}.new_dashboard_table_modal-text[data-v-9cc025fb]{margin-bottom:20px;font-size:13px;line-height:20px}.new_dashboard_table_modal-footer[data-v-9cc025fb]{display:flex;justify-content:flex-end;border-top:1px solid #eaeaea;padding-top:15px}.new_dashboard_table_done-button[data-v-9cc025fb]{background:#2EC666;color:#fff;border:none;padding:8px 16px;border-radius:4px;cursor:pointer;display:flex;align-items:center}.new_dashboard_table_done-button[data-v-9cc025fb]:hover{background:#27B45D}.new_dashboard_table_modal-fade-enter-active[data-v-9cc025fb],.new_dashboard_table_modal-fade-leave-active[data-v-9cc025fb]{transition:opacity .3s ease}.new_dashboard_table_modal-fade-enter-from[data-v-9cc025fb],.new_dashboard_table_modal-fade-leave-to[data-v-9cc025fb]{opacity:0}.new_dashboard_table_check[data-v-9cc025fb]{width:20px}[data-v-44408cd4],[data-v-44408cd4]:before,[data-v-44408cd4]:after{box-sizing:border-box}body[data-v-44408cd4],[data-v-44408cd4]{font-family:Inter,-apple-system,BlinkMacSystemFont,sans-serif}.new_dashboard_table_header-content[data-v-44408cd4]{display:flex;align-items:center;justify-content:center;width:100%;padding:0 8px}.new_dashboard_table_header-text[data-v-44408cd4],.new_dashboard_table_sort-indicator[data-v-44408cd4]{pointer-events:auto}.new_dashboard_table_header-cell[data-v-44408cd4]{cursor:grabbing;position:relative}.new_dashboard_table_header-cell[data-v-44408cd4]:before{content:"";position:absolute;top:0;left:0;right:0;bottom:0;z-index:1}.new_dashboard_table_main-section[data-v-44408cd4]{border:1px solid #dddddd;padding-top:15px;padding-bottom:15px;border-radius:10px}.new_dashboard_table_table-text-cover[data-v-44408cd4]{display:flex;align-items:center;padding-left:28px}.new_dashboard_table_table-text-cover>h2[data-v-44408cd4]{font-size:16px;font-weight:700}.new_dashboard_table_header-text[data-v-44408cd4]{position:relative;z-index:2;cursor:pointer;display:flex}.new_dashboard_table_table-container[data-v-44408cd4]{width:100%;position:relative;background:white;overflow:hidden;border-top:1px solid #eaeaea;margin-bottom:20px;min-height:400px;display:flex;flex-direction:column}.new_dashboard_table_loading-overlay[data-v-44408cd4]{position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(224,223,223,.5);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);display:flex;flex-direction:column;justify-content:center;align-items:center;z-index:1000}@keyframes tooltipScaleIn-44408cd4{0%{opacity:0;transform:translate(-50%) scale(.7)}to{opacity:1;transform:translate(-50%) scale(1)}}.new_dashbaord_table_loader_cover[data-v-44408cd4]{background-color:#fff;padding:14px 35px;border-radius:8px}.new_dashboard_table_loader_img[data-v-44408cd4]{width:50px;height:50px}.new_dashboard_table_loading-text[data-v-44408cd4]{margin-top:13px;font-size:12px;color:#333}.new_dashboard_table_spinner[data-v-44408cd4]{width:50px;height:50px;border:3px solid #f3f3f3;border-top:3px solid #2ec666;border-radius:50%;animation:spin-44408cd4 1s linear infinite}@keyframes spin-44408cd4{0%{transform:rotate(0)}to{transform:rotate(360deg)}}.new_dashboard_table_table-header-container[data-v-44408cd4]{display:flex;align-items:center;justify-content:space-between;margin-bottom:.4rem;width:100%}.new_dashboard_table_search-bar-container[data-v-44408cd4]{display:flex;align-items:center;padding-right:28px}.new_dashboard_table_search-bar[data-v-44408cd4]{position:relative;width:100%;max-width:270px}#new_dashboard_table_search-bar_input[data-v-44408cd4]{width:160px!important;padding:0px 1rem 0px 2.5rem!important;height:41.5px;font-size:14px!important;border:1px solid #dddddd!important;border-radius:10px!important;outline:none!important;font-weight:lighter!important;transition:border-color .3s!important}#new_dashboard_table_search-bar_input[data-v-44408cd4]:focus{border-color:#666!important}#new_dashboard_table_search-icon[data-v-44408cd4]{position:absolute!important;top:45%!important;left:10px!important;transform:translateY(-50%)!important;width:1rem!important;height:1rem!important;color:#666!important;pointer-events:none!important}.new_dashboard_table_scrollable-wrapper[data-v-44408cd4]{width:100%;overflow-x:auto;overflow-y:hidden;flex:1;display:flex;flex-direction:column;position:relative}.new_dashboard_table_table-header[data-v-44408cd4]{display:flex;background:white;position:sticky;top:0;z-index:3;white-space:nowrap;border-bottom:1px solid #eee}.new_dashboard_table_header-cell[data-v-44408cd4]{padding:16px 0;height:54px;font-weight:500;flex:1;min-width:120px;cursor:grabbing;-webkit-user-select:none;user-select:none;position:relative;display:flex;align-items:center;justify-content:center;color:#333;font-size:12px;background:white;transition:background .3s,transform .3s}.new_dashboard_table_header-cell[data-v-44408cd4]:active{cursor:grabbing}.new_dashboard_table_table-body[data-v-44408cd4]{white-space:nowrap;flex:1;display:flex;flex-direction:column;min-width:fit-content}.new_dashboard_table_table-row[data-v-44408cd4]{display:flex;border-bottom:1px solid #eee;background-color:#fbfbfb;width:100%;min-width:fit-content}.new_dashboard_table_table-row.new_dashboard_table_striped[data-v-44408cd4]{background-color:#fff}.new_dashboard_table_table-cell[data-v-44408cd4]{padding:16px 10px 16px 5px;height:54px;flex:1;min-width:120px;overflow:hidden;text-overflow:ellipsis;font-size:13px;color:#333;display:flex;align-items:center;justify-content:center;cursor:grabbing;position:relative;transition:transform .2s ease,box-shadow .2s ease}.new_dashboard_table_table-cell.new_dashboard_table_page-path[data-v-44408cd4]{justify-content:center}#new_dashboard_table_page-url[data-v-44408cd4]{color:#666;display:-webkit-box;display:box;-webkit-line-clamp:2;line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis;white-space:normal;line-height:1.4;max-height:2.8em;padding:0 20px 0 10px!important;text-align:start;width:100%}.new_dashboard_table_column-dragging[data-v-44408cd4]{border-left:2px solid #eaeaea;border-right:2px solid #eaeaea;cursor:grabbing;box-shadow:5px 5px 15px solid brack}.new_dashboard_table_header-cell.new_dashboard_table_column-dragging[data-v-44408cd4]{border-left:2px solid #eaeaea;border-right:2px solid #eaeaea;cursor:grabbing}.new_dashboard_table_dragging[data-v-44408cd4]{opacity:1;transform:none;box-shadow:none}.new_dashboard_table_fixed-column[data-v-44408cd4]{position:sticky;z-index:4;cursor:default!important;display:flex;justify-content:center;background-color:inherit}.new_dashboard_table_table-row .new_dashboard_table_fixed-column[data-v-44408cd4]{background-color:inherit}.new_dashboard_table_header-cell.new_dashboard_table_page-path[data-v-44408cd4],.new_dashboard_table_table-cell.new_dashboard_table_page-path[data-v-44408cd4]{border-left:1px solid #eaeaea}.new_dashboard_table_fixed-column[data-v-44408cd4]:nth-child(1){left:0;z-index:5;width:100px;min-width:100px}.new_dashboard_table_fixed-column[data-v-44408cd4]:nth-child(2){left:100px;z-index:5;width:200px;min-width:200px}.new_dashboard_table_sort-indicator[data-v-44408cd4]{margin-left:8px;color:#999;font-size:12px;cursor:pointer;display:flex;align-items:center;transition:transform .3s ease;position:relative;z-index:2}.new_dashboard_table_reorder-indicator[data-v-44408cd4]{margin-right:8px;color:#999;font-size:12px;cursor:pointer;display:flex;align-items:center;transition:transform .3s ease;position:relative;z-index:2}.new_dashboard_table_sort-indicator svg[data-v-44408cd4]{transition:transform .3s ease}.new_dashboard_table_sort-indicator[data-v-44408cd4]:hover{opacity:.8}.new_dashboard_table_resizer-column[data-v-44408cd4]{position:absolute;right:0;top:0;height:100%;width:9px;background:transparent;cursor:col-resize;z-index:6;display:flex;align-items:center;justify-content:center}.new_dashboard_table_resizer-column[data-v-44408cd4]:after{content:"";position:absolute;left:50%;top:0;bottom:0;width:9px;background-color:#eaeaea;transform:translate(-50%);transition:background-color .2s ease;z-index:6}.new_dashboard_table_resizer-column svg[data-v-44408cd4]{position:absolute;right:0;top:50%;transform:translateY(-50%);z-index:7;pointer-events:none;padding:0 2px 0 0}.new_dashboard_table_table-cell.new_dashboard_table_column-drag-animation[data-v-44408cd4]{transition:transform .2s ease}.new_dashboard_table_dragging-column[data-v-44408cd4]{background:#f5f5f5;box-shadow:0 0 10px #0000001a}.new_dashboard_table_heatmap-icon img[data-v-44408cd4]{width:24px;height:24px}.new_dashboard_table_tooltip[data-v-44408cd4]{position:fixed;transform:translate(-50%) scale(1);background:white;padding:18px 12px;border-radius:4px;font-size:12px;box-shadow:0 2px 8px #00000026;z-index:10000;white-space:wrap;color:#333;border:1px solid #eee;width:150px;height:70px;text-align:center;display:flex;justify-content:center;align-items:center;font-weight:400;line-height:20px;animation:tooltipScaleIn-44408cd4 .2s cubic-bezier(.4,0,.2,1);transform-origin:top center;opacity:1}.new_dashboard_table_tooltip-arrow[data-v-44408cd4]{position:absolute;bottom:-6px;left:50%;transform:translate(-50%);width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-top:6px solid white;filter:drop-shadow(0 1px 1px rgba(0,0,0,.1))}.new_dashboard_table_currency[data-v-44408cd4]:before{content:"$ ";color:#666}.new_dashboard_table_percentage[data-v-44408cd4]:after{content:" %";color:#666}.new_dashboard_table_table-row[data-v-44408cd4]:hover,.new_dashboard_table_table-row.new_dashboard_table_striped[data-v-44408cd4]:hover{background-color:#f5f5f5!important;transition:.1s ease-in}.new_dashboard_table_pagination-container[data-v-44408cd4]{display:flex;align-items:center;justify-content:center;gap:.5rem}.new_dashboard_table_pagination-button[data-v-44408cd4]{padding:.5rem 1rem;border:1px solid #ccc;border-radius:5px;background-color:#fff;color:#333;font-size:13px;cursor:pointer;transition:background-color .3s ease,color .3s ease}.new_dashboard_table_pagination-button[data-v-44408cd4]:hover{background-color:#f0f0f0}.new_dashboard_table_pagination-numbers[data-v-44408cd4]{display:flex;gap:.5rem}.new_dashboard_table_pagination-number[data-v-44408cd4]{padding:.5rem;height:30px;width:30px;display:flex;justify-content:center;align-items:center;border-radius:50%;background-color:#fff;color:#333;font-size:14px;cursor:pointer;transition:background-color .3s ease,color .3s ease}.new_dashboard_table_pagination-number.new_dashboard_table_active[data-v-44408cd4]{background-color:#2ec666;color:#fff}.new_dashboard_table_pagination-number[data-v-44408cd4]:hover{background-color:#f0f0f0}.new_dashboard_table_pagination-button[data-v-44408cd4]:disabled{opacity:.5;cursor:not-allowed}.new_dashboard_table_pagination-button[data-v-44408cd4]:not(:disabled):hover{background-color:#f0f0f0}.new_dashboard_table_pagination-number[data-v-44408cd4]:hover:not(.new_dashboard_table_active){background-color:#f0f0f0}.new_dashboard_table_pagination-number.new_dashboard_table_ellipsis[data-v-44408cd4]{cursor:default;background-color:transparent}.new_dashboard_table_pagination-number.new_dashboard_table_ellipsis[data-v-44408cd4]:hover{background-color:transparent}.new_dashboard_table_scroll-indicator[data-v-44408cd4]{position:absolute;right:0;top:0;bottom:0;width:120px;pointer-events:none;z-index:5;background:linear-gradient(90deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.9) 40%,rgba(255,255,255,1) 100%);display:flex;align-items:center;justify-content:flex-end;opacity:1;transition:opacity .3s ease-out}.new_dashboard_table_scroll-indicator.fade-out[data-v-44408cd4]{opacity:0}.new_dashboard_table_scroll-indicator-content[data-v-44408cd4]{display:flex;flex-direction:column;align-items:center;gap:8px;margin-right:20px;color:#666;font-size:14px}.new_dashboard_table_scroll-indicator svg[data-v-44408cd4]{animation:bounce-44408cd4 1.5s infinite}@keyframes bounce-44408cd4{0%,20%,50%,80%,to{transform:translate(0)}40%{transform:translate(5px)}60%{transform:translate(3px)}}@keyframes fadeIn-44408cd4{0%{opacity:0}to{opacity:1}}.new_dashboard_table_empty-state[data-v-44408cd4]{display:flex;justify-content:center;align-items:center;min-height:400px;width:100%;background:white}.new_dashboard_table_empty-state-content[data-v-44408cd4]{display:flex;flex-direction:column;align-items:center;text-align:center;padding:2rem;max-width:400px;animation:fadeIn-44408cd4 .3s ease-in}.new_dashboard_table_empty-state-content svg[data-v-44408cd4]{margin-bottom:1.5rem;opacity:.5}.new_dashboard_table_empty-state-content h3[data-v-44408cd4]{margin:0;color:#4a5568;font-size:1.25rem;font-weight:600;margin-bottom:1rem}.new_dashboard_table_empty-state-content p[data-v-44408cd4]{margin:0;color:#718096;font-size:.875rem;line-height:1.5}@keyframes fadeIn-44408cd4{0%{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}.new_dashboard_table_icon-tooltip-wrapper[data-v-44408cd4]{position:relative}.performance_tooltip[data-v-44408cd4]{position:absolute;background:white;padding:18px 12px;border-radius:4px;font-size:12px;box-shadow:0 2px 8px #00000026;z-index:10000;white-space:wrap;color:#333;border:1px solid #eee;text-align:center;transform-origin:top center}')),document.head.appendChild(a)}}catch(e){console.error("vite-plugin-css-injected-by-js",e)}})();
+import { openBlock as P, createBlock as B, Transition as c, withCtx as K, createElementBlock as o, createElementVNode as E, createCommentVNode as g, pushScopeId as k, popScopeId as p, resolveComponent as y, Fragment as L, normalizeStyle as q, createTextVNode as v, toDisplayString as n, withDirectives as Q, vModelText as x, normalizeClass as l, renderList as C, withModifiers as u, vShow as Y, createVNode as M, createStaticVNode as b } from "vue";
 const O = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACkAAAAoCAYAAABjPNNTAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAJ7SURBVHgB7Zg9aBRBFMffSgqvzGljNHhyEoWAvWBhRKw8BCtJBAuN+IGCgoUBxc7S3kIUm1jZpFSuCaQPpMjnXhJIE0jKEEjy8n/MXphsZnf2Y2ab3A9+LLc7O/tudmf2vSXqcYoIqCTM3I/NLTgMh2Ad9sFNuAhn4HwQBBtUJQisBh/A/3CHs9GGo/AM+QYXuQ8XuDghHCMfyG2FU+yOSThArkBnTbjM7gnhFSoLOmnAdfbHGmxSUXDyQPRvfbPCapUwYptp32CD/CO3/DflBf9sjKunZYolSAhQRniZqhlFnSV4Awv/jr4z6XY/ouoDFK7Ce/GdSUGOk3tW4UP4GG6ntHtLNljNaNeEsKFd43NKW3nNHpvpppG8Rm7pwBE8Zx1tX9qb5iyphOUIU5A3yR0hvK0HiFF6is0zy3nD+o8+Q4MhckMH3kGAq90dUYDfyb4+H4vB1Pgc2fkF78IvCcdNI/g8Y4BCPfUoOvvL6ezCutZ+Im2SRG3G4QFnZ8oW5A9LB3vweuycD9ExyZQux469hPucj5+2ID9m6GQRXoyd94pPjuALzjeCXSZsQbYydiTZ+WBKP284/wh2GbEFKRl41rpFRvSSoY/XXGwEu9gzdjT6l6NDCXRQO/ddyQDblAVWlWAeQvgEfuXyjMbjSUrVatjMkspKqqQDm1hfD/SdxoU1yufeU/V8igdohd2WsDb+UBFYzXQfpWyckMvU4Kxqbp8lrfTtrPYO2T1SyhavuQ2BSsY+ye6Q572ffMCq1A25OLL4t8g3uEjA6jNeO2Ng8pqVz4TykqjlvJyTj6gXsJHUTcoOyajPwz24BRfgHJzG+rdNPXrYOQTRHcgQFbnoQAAAAABJRU5ErkJggg==";
 const J = (A, w) => {
   const D = A.__vccOpts || A;
-  for (const [P, I] of w)
-    D[P] = I;
+  for (const [r, e] of w)
+    D[r] = e;
   return D;
-}, d = (A) => (p("data-v-9cc025fb"), A = A(), k(), A), T = {
+}, d = (A) => (k("data-v-9cc025fb"), A = A(), p(), A), T = {
   key: 0,
   class: "new_dashboard_table_modal-overlay"
-}, Z = { class: "new_dashboard_table_modal-content" }, N = { class: "new_dashboard_table_modal-header" }, G = /* @__PURE__ */ d(() => /* @__PURE__ */ E("h4", { style: { "margin-top": "0px" } }, "Page Performance", -1)), j = { class: "new_dashboard_table_video-container" }, U = ["src"], W = /* @__PURE__ */ d(() => /* @__PURE__ */ E("div", { class: "new_dashboard_table_modal-text" }, [
+}, Z = { class: "new_dashboard_table_modal-content" }, N = { class: "new_dashboard_table_modal-header" }, j = /* @__PURE__ */ d(() => /* @__PURE__ */ E("h4", { style: { "margin-top": "0px" } }, "Page Performance", -1)), G = { class: "new_dashboard_table_video-container" }, U = ["src"], W = /* @__PURE__ */ d(() => /* @__PURE__ */ E("div", { class: "new_dashboard_table_modal-text" }, [
   /* @__PURE__ */ E("h3", null, "How to use Analytics"),
   /* @__PURE__ */ E("p", { style: { "font-weight": "100 !important" } }, " Ecommerce measurement helps you understand what your customers like, how well your marketing works, and how to make your online store better to increase sales and engagement. For example, by implementing ecommerce events, you can figure out which colors are most popular, how large the average order value is, and whether certain promotions increase purchases. ")
 ], -1)), z = { class: "new_dashboard_table_modal-footer" }, V = /* @__PURE__ */ d(() => /* @__PURE__ */ E("span", { style: { "margin-right": "3px" } }, "Done", -1)), f = /* @__PURE__ */ d(() => /* @__PURE__ */ E("img", {
@@ -34,18 +34,18 @@ const J = (A, w) => {
     }
   },
   setup(A) {
-    return (w, D) => (o(), B(c, { name: "new_dashboard_table_modal-fade" }, {
+    return (w, D) => (P(), B(c, { name: "new_dashboard_table_modal-fade" }, {
       default: K(() => [
-        A.show ? (o(), r("div", T, [
+        A.show ? (P(), o("div", T, [
           E("div", Z, [
             E("div", N, [
-              G,
+              j,
               E("button", {
-                onClick: D[0] || (D[0] = (P) => w.$emit("close")),
+                onClick: D[0] || (D[0] = (r) => w.$emit("close")),
                 class: "new_dashboard_table_close-button"
               }, "×")
             ]),
-            E("div", j, [
+            E("div", G, [
               E("iframe", {
                 src: A.videoSource,
                 class: "new_dashboard_table_video-player",
@@ -57,7 +57,7 @@ const J = (A, w) => {
             W,
             E("div", z, [
               E("button", {
-                onClick: D[1] || (D[1] = (P) => w.$emit("close")),
+                onClick: D[1] || (D[1] = (r) => w.$emit("close")),
                 class: "new_dashboard_table_done-button"
               }, H)
             ])
@@ -136,8 +136,21 @@ const AA = {
       return Math.ceil(this.tableData.length / this.itemsPerPage);
     },
     displayedPageNumbers() {
-      const w = Math.floor((this.currentPage - 1) / 10) * 10 + 1, D = Math.min(w + 9, this.totalPages);
-      return Array.from({ length: D - w + 1 }, (P, I) => w + I);
+      return this.totalPages <= 9 ? Array.from({ length: this.totalPages }, (A, w) => w + 1) : this.currentPage <= 5 ? [
+        ...Array.from({ length: 9 }, (A, w) => w + 1),
+        "ellipsis",
+        this.totalPages
+      ] : this.currentPage > this.totalPages - 3 ? [
+        1,
+        "ellipsis",
+        ...Array.from({ length: 9 }, (A, w) => this.totalPages - 8 + w)
+      ] : [
+        1,
+        "ellipsis",
+        ...Array.from({ length: 7 }, (A, w) => this.currentPage - 3 + w),
+        "ellipsis",
+        this.totalPages
+      ];
     },
     currentGroup() {
       return Math.floor((this.currentPage - 1) / 10);
@@ -189,7 +202,7 @@ const AA = {
     },
     async fetchSavedColumnArrangement() {
       try {
-        const A = this.baseUrl, w = this.getIdSite(), D = this.getToken(), P = `${A}index.php?module=API&method=HeatmapSessionRecording.getDashboardPersistence&idSite=${w}&token=${D}`, i = await (await fetch(P, {
+        const A = this.baseUrl, w = this.getIdSite(), D = this.getToken(), r = `${A}index.php?module=API&method=HeatmapSessionRecording.getDashboardPersistence&idSite=${w}&token=${D}`, i = await (await fetch(r, {
           method: "GET"
         })).json();
         i.status === "success" && i.data && i.data.length > 0 && (this.columns = i.data);
@@ -198,7 +211,7 @@ const AA = {
     },
     async saveColumnArrangement() {
       try {
-        const A = this.baseUrl, w = this.getIdSite(), D = this.getToken(), P = `${A}index.php?module=API&method=HeatmapSessionRecording.getDashboardPersistence&idSite=${w}&token=${D}`, i = await (await fetch(P, {
+        const A = this.baseUrl, w = this.getIdSite(), D = this.getToken(), r = `${A}index.php?module=API&method=HeatmapSessionRecording.getDashboardPersistence&idSite=${w}&token=${D}`, i = await (await fetch(r, {
           method: "POST",
           body: JSON.stringify({
             data: this.columns
@@ -223,17 +236,15 @@ const AA = {
         return;
       const w = A.clientX - this.startX, D = Math.max(320, this.startWidth + w);
       this.pagePathWidth = D, this.$nextTick(() => {
-        const P = document.querySelector(".new_dashboard_table_scrollable-wrapper");
-        this.checkScrollable(P);
+        const r = document.querySelector(".new_dashboard_table_scrollable-wrapper");
+        this.checkScrollable(r);
       });
     },
     previousPageGroup() {
-      const A = (this.currentGroup - 1) * 10 + 1;
-      this.changePage(A);
+      this.previousPage();
     },
     nextPageGroup() {
-      const A = (this.currentGroup + 1) * 10 + 1;
-      this.changePage(A);
+      this.nextPage();
     },
     changePage(A) {
       A >= 1 && A <= this.totalPages && (this.currentPage = A);
@@ -265,7 +276,7 @@ const AA = {
     async fetchHeatmapData() {
       this.isLoading = !0;
       try {
-        const w = new URLSearchParams(window.location.search).get("idSite") || 4, P = await (await fetch("https://hmd.heatmap.com/root", {
+        const w = new URLSearchParams(window.location.search).get("idSite") || 4, r = await (await fetch("https://hmd.heatmap.com/root", {
           method: "POST",
           body: JSON.stringify({
             method: "heatmapDataMetric",
@@ -274,21 +285,21 @@ const AA = {
             request: "portal"
           })
         })).json();
-        this.tableData = P.heatmaps.map((I) => ({
-          heatmap: I.heatmap,
-          screenshot_url: I.url,
-          total_loghsr: I.pageviews,
-          unique_visit: I.sessions,
-          purchases: I.purchases,
-          total_rev: I.revenue,
-          rps: I.rps,
-          aov: I.aov,
-          conv_rate: I.conv_rate,
-          scroll: I.scroll,
-          time_on_page: I.time_on_page
+        this.tableData = r.heatmaps.map((e) => ({
+          heatmap: e.heatmap,
+          screenshot_url: e.url,
+          total_loghsr: e.pageviews,
+          unique_visit: e.sessions,
+          purchases: e.purchases,
+          total_rev: e.revenue,
+          rps: e.rps,
+          aov: e.aov,
+          conv_rate: e.conv_rate,
+          scroll: e.scroll,
+          time_on_page: e.time_on_page
         })), this.originalTableData = [...this.tableData], this.$nextTick(() => {
-          const I = document.querySelector(".new_dashboard_table_scrollable-wrapper");
-          I && this.checkScrollable(I);
+          const e = document.querySelector(".new_dashboard_table_scrollable-wrapper");
+          e && this.checkScrollable(e);
         });
       } catch {
       } finally {
@@ -301,16 +312,19 @@ const AA = {
         return;
       }
       const A = this.searchQuery.toLowerCase(), w = this.originalTableData.filter((D) => {
-        var P, I, i, n, s, e, S, t;
-        return ((P = D.screenshot_url) == null ? void 0 : P.toString().toLowerCase().includes(A)) || this.formatDeviceType(D.device_type).toLowerCase().includes(A) || ((I = D.total_loghsr) == null ? void 0 : I.toString().toLowerCase().includes(A)) || ((i = D.unique_visit) == null ? void 0 : i.toString().toLowerCase().includes(A)) || ((n = D.purchases) == null ? void 0 : n.toString().toLowerCase().includes(A)) || ((s = D.total_rev) == null ? void 0 : s.toString().toLowerCase().includes(A)) || ((e = D.rps) == null ? void 0 : e.toString().toLowerCase().includes(A)) || ((S = D.aov) == null ? void 0 : S.toString().toLowerCase().includes(A)) || ((t = D.conv_rate) == null ? void 0 : t.toString().toLowerCase().includes(A));
+        var r, e, i, h, S, I, s, t;
+        return ((r = D.screenshot_url) == null ? void 0 : r.toString().toLowerCase().includes(A)) || this.formatDeviceType(D.device_type).toLowerCase().includes(A) || ((e = D.total_loghsr) == null ? void 0 : e.toString().toLowerCase().includes(A)) || ((i = D.unique_visit) == null ? void 0 : i.toString().toLowerCase().includes(A)) || ((h = D.purchases) == null ? void 0 : h.toString().toLowerCase().includes(A)) || ((S = D.total_rev) == null ? void 0 : S.toString().toLowerCase().includes(A)) || ((I = D.rps) == null ? void 0 : I.toString().toLowerCase().includes(A)) || ((s = D.aov) == null ? void 0 : s.toString().toLowerCase().includes(A)) || ((t = D.conv_rate) == null ? void 0 : t.toString().toLowerCase().includes(A));
       });
       this.tableData = w, this.currentPage = 1;
     },
     previousPage() {
-      this.currentPage > 1 && this.currentPage--;
+      this.currentPage > 1 && this.changePage(this.currentPage - 1);
     },
     nextPage() {
-      this.currentPage < this.totalPages && this.currentPage++;
+      this.currentPage < this.totalPages && this.changePage(this.currentPage + 1);
+    },
+    changePage(A) {
+      A >= 1 && A <= this.totalPages && (this.currentPage = A);
     },
     toggleSort(A) {
       A.sortable && (A.sortDirection ? A.sortDirection === "asc" ? A.sortDirection = "desc" : A.sortDirection = null : A.sortDirection = "asc", this.columns.forEach((w) => {
@@ -319,8 +333,8 @@ const AA = {
     },
     sortTable(A) {
       A.sortDirection && this.tableData.sort((w, D) => {
-        const P = w[A.field], I = D[A.field];
-        return A.sortDirection === "asc" ? P > I ? 1 : -1 : P < I ? 1 : -1;
+        const r = w[A.field], e = D[A.field];
+        return A.sortDirection === "asc" ? r > e ? 1 : -1 : r < e ? 1 : -1;
       });
     },
     showTooltip(A, w) {
@@ -364,25 +378,25 @@ const AA = {
         return;
       }
       this.isDragging = !0, this.draggedColumnIndex = A, this.draggedColumn = this.columns[A], this.$nextTick(() => {
-        const e = document.querySelectorAll(".new_dashboard_table_header-cell"), S = document.querySelectorAll(`.new_dashboard_table_table-cell:nth-child(${A + 1})`);
-        e[A].classList.add("dragged-column"), S.forEach((t) => {
+        const I = document.querySelectorAll(".new_dashboard_table_header-cell"), s = document.querySelectorAll(`.new_dashboard_table_table-cell:nth-child(${A + 1})`);
+        I[A].classList.add("dragged-column"), s.forEach((t) => {
           t.classList.add("dragged-column");
         });
       });
       const D = document.createElement("div");
       D.style.position = "absolute", D.style.top = "0", D.style.pointerEvents = "none", D.style.opacity = "0.9", D.style.zIndex = "1000";
-      const P = document.querySelector(`.new_dashboard_table_header-cell:nth-child(${A + 1})`), I = Array.from(document.querySelectorAll(`.new_dashboard_table_table-cell:nth-child(${A + 1})`)), n = document.querySelector(".new_dashboard_table_table-container").offsetHeight;
-      D.style.width = `${P.offsetWidth}px`, D.style.height = `${n}px`;
-      const s = P.cloneNode(!0);
-      s.style.height = P.offsetHeight + "px", D.appendChild(s), I.forEach((e, S) => {
-        const t = e.cloneNode(!0);
-        t.style.height = e.offsetHeight + "px", S % 2 === 0 ? t.style.backgroundColor = "#fbfbfb" : t.style.backgroundColor = "white", D.appendChild(t);
+      const r = document.querySelector(`.new_dashboard_table_header-cell:nth-child(${A + 1})`), e = Array.from(document.querySelectorAll(`.new_dashboard_table_table-cell:nth-child(${A + 1})`)), h = document.querySelector(".new_dashboard_table_table-container").offsetHeight;
+      D.style.width = `${r.offsetWidth}px`, D.style.height = `${h}px`;
+      const S = r.cloneNode(!0);
+      S.style.height = r.offsetHeight + "px", D.appendChild(S), e.forEach((I, s) => {
+        const t = I.cloneNode(!0);
+        t.style.height = I.offsetHeight + "px", s % 2 === 0 ? t.style.backgroundColor = "#fbfbfb" : t.style.backgroundColor = "white", D.appendChild(t);
       }), document.body.appendChild(D), w.dataTransfer.setDragImage(D, 0, 0), requestAnimationFrame(() => document.body.removeChild(D));
     },
     dragOver(A, w) {
       if (A.preventDefault(), !(this.draggedColumnIndex === null || w < 2) && this.draggedColumnIndex !== w) {
-        const D = [...this.columns], [P] = D.splice(this.draggedColumnIndex, 1);
-        D.splice(w, 0, P), this.columns = D, this.draggedColumnIndex = w;
+        const D = [...this.columns], [r] = D.splice(this.draggedColumnIndex, 1);
+        D.splice(w, 0, r), this.columns = D, this.draggedColumnIndex = w;
       }
     },
     dragLeave() {
@@ -392,22 +406,22 @@ const AA = {
       this.isDragging = !1, this.draggedColumnIndex = null, this.dragOverColumnIndex = null, this.draggedColumn = null, document.querySelectorAll(".new_dashboard_table_dragging-column").forEach((w) => w.classList.remove("new_dashboard_table_dragging-column"));
     },
     drop(A, w) {
-      var n;
+      var h;
       if (A.preventDefault(), this.draggedColumnIndex === null || this.draggedColumnIndex < 0 || this.columns[w].fixed || w < 2) {
         console.log("Drop prevented", {
           draggedColumnIndex: this.draggedColumnIndex,
-          isFixed: (n = this.columns[w]) == null ? void 0 : n.fixed,
+          isFixed: (h = this.columns[w]) == null ? void 0 : h.fixed,
           dropIndex: w
         });
         return;
       }
-      const D = [...this.columns], [P] = D.splice(this.draggedColumnIndex, 1);
-      D.splice(w, 0, P), this.columns = D, this.draggedColumnIndex = null, this.dragOverColumnIndex = null, this.isDragging = !1;
-      const I = document.querySelectorAll(".new_dashboard_table_header-cell"), i = document.querySelectorAll(".new_dashboard_table_table-cell");
-      I.forEach((s) => {
-        s.classList.remove("dragged-column");
-      }), i.forEach((s) => {
-        s.classList.remove("dragged-column");
+      const D = [...this.columns], [r] = D.splice(this.draggedColumnIndex, 1);
+      D.splice(w, 0, r), this.columns = D, this.draggedColumnIndex = null, this.dragOverColumnIndex = null, this.isDragging = !1;
+      const e = document.querySelectorAll(".new_dashboard_table_header-cell"), i = document.querySelectorAll(".new_dashboard_table_table-cell");
+      e.forEach((S) => {
+        S.classList.remove("dragged-column");
+      }), i.forEach((S) => {
+        S.classList.remove("dragged-column");
       }), this.saveColumnArrangement();
     },
     initResize(A) {
@@ -447,7 +461,7 @@ const AA = {
       return ["conv_rate"].includes(A);
     }
   }
-}, a = (A) => (p("data-v-dfa04844"), A = A(), k(), A), wA = { class: "new_dashboard_table_main-section" }, DA = { class: "new_dashboard_table_table-header-container" }, iA = { class: "new_dashboard_table_table-text-cover" }, EA = /* @__PURE__ */ a(() => /* @__PURE__ */ E("h2", { style: { margin: "0", padding: "0", "margin-bottom": "5px" } }, "Page Performance Overview", -1)), IA = /* @__PURE__ */ a(() => /* @__PURE__ */ E("path", {
+}, a = (A) => (k("data-v-44408cd4"), A = A(), p(), A), wA = { class: "new_dashboard_table_main-section" }, DA = { class: "new_dashboard_table_table-header-container" }, iA = { class: "new_dashboard_table_table-text-cover" }, EA = /* @__PURE__ */ a(() => /* @__PURE__ */ E("h2", { style: { margin: "0", padding: "0", "margin-bottom": "5px" } }, "Page Performance Overview", -1)), IA = /* @__PURE__ */ a(() => /* @__PURE__ */ E("path", {
   d: "M9.09 9C9.3251 8.33167 9.78915 7.76811 10.4 7.40913C11.0108 7.05016 11.7289 6.91894 12.4272 7.03871C13.1255 7.15849 13.7588 7.52152 14.2151 8.06353C14.6713 8.60553 14.9211 9.29152 14.92 10C14.92 12 11.92 13 11.92 13M12 17H12.01M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z",
   stroke: "black",
   "stroke-width": "2",
@@ -455,7 +469,7 @@ const AA = {
   "stroke-linejoin": "round"
 }, null, -1)), eA = [
   IA
-], tA = /* @__PURE__ */ a(() => /* @__PURE__ */ E("div", { class: "new_dashboard_table_tooltip-arrow" }, null, -1)), oA = { class: "new_dashboard_table_icon-tooltip-wrapper" }, PA = /* @__PURE__ */ a(() => /* @__PURE__ */ E("span", { style: { "font-size": "14px", "font-weight": "700" } }, "Page Performance", -1)), rA = /* @__PURE__ */ a(() => /* @__PURE__ */ E("p", { style: { "font-size": "12px", "padding-top": "0" } }, "Learn how to use your analytics to find and view the pages of your website that have the most insights.", -1)), aA = /* @__PURE__ */ a(() => /* @__PURE__ */ E("div", { class: "new_dashboard_table_tooltip-arrow" }, null, -1)), SA = { class: "new_dashboard_table_search-bar-container" }, sA = { class: "new_dashboard_table_search-bar" }, RA = /* @__PURE__ */ a(() => /* @__PURE__ */ E("svg", {
+], tA = /* @__PURE__ */ a(() => /* @__PURE__ */ E("div", { class: "new_dashboard_table_tooltip-arrow" }, null, -1)), PA = { class: "new_dashboard_table_icon-tooltip-wrapper" }, oA = /* @__PURE__ */ a(() => /* @__PURE__ */ E("span", { style: { "font-size": "14px", "font-weight": "700" } }, "Page Performance", -1)), rA = /* @__PURE__ */ a(() => /* @__PURE__ */ E("p", { style: { "font-size": "12px", "padding-top": "0" } }, "Learn how to use your analytics to find and view the pages of your website that have the most insights.", -1)), aA = /* @__PURE__ */ a(() => /* @__PURE__ */ E("div", { class: "new_dashboard_table_tooltip-arrow" }, null, -1)), sA = { class: "new_dashboard_table_search-bar-container" }, SA = { class: "new_dashboard_table_search-bar" }, RA = /* @__PURE__ */ a(() => /* @__PURE__ */ E("svg", {
   width: "16",
   height: "16",
   viewBox: "0 0 16 16",
@@ -472,15 +486,15 @@ const AA = {
 ], -1)), gA = {
   key: 0,
   class: "new_dashboard_table_loading-overlay"
-}, nA = /* @__PURE__ */ a(() => /* @__PURE__ */ E("div", { class: "new_dashbaord_table_loader_cover" }, [
+}, hA = /* @__PURE__ */ a(() => /* @__PURE__ */ E("div", { class: "new_dashbaord_table_loader_cover" }, [
   /* @__PURE__ */ E("img", {
     class: "new_dashboard_table_loader_img",
     src: _,
     alt: "Loading..."
   }),
   /* @__PURE__ */ E("div", { class: "new_dashboard_table_loading-text" }, "Loading...")
-], -1)), hA = [
-  nA
+], -1)), nA = [
+  hA
 ], LA = { class: "new_dashboard_table_table-header" }, lA = ["onDragstart", "onDragover", "onDrop"], uA = { class: "new_dashboard_table_header-content" }, mA = ["onMouseover"], qA = {
   key: 0,
   width: "12",
@@ -502,14 +516,14 @@ const AA = {
   viewBox: "0 0 17 16",
   fill: "none",
   xmlns: "http://www.w3.org/2000/svg"
-}, pA = /* @__PURE__ */ a(() => /* @__PURE__ */ E("path", {
+}, kA = /* @__PURE__ */ a(() => /* @__PURE__ */ E("path", {
   d: "M4.5 8H12.5M2.5 4H14.5M6.5 12H10.5",
   stroke: "#ABABAB",
   "stroke-width": "0.5",
   "stroke-linecap": "round",
   "stroke-linejoin": "round"
-}, null, -1)), kA = [
-  pA
+}, null, -1)), pA = [
+  kA
 ], JA = {
   key: 1,
   width: "17",
@@ -548,14 +562,14 @@ const AA = {
   alt: "Heatmap"
 }, null, -1)), ZA = [
   TA
-], NA = ["href"], GA = {
+], NA = ["href"], jA = {
   key: 0,
   width: "8",
   height: "53",
   viewBox: "0 0 8 53",
   fill: "none",
   xmlns: "http://www.w3.org/2000/svg"
-}, jA = /* @__PURE__ */ a(() => /* @__PURE__ */ E("rect", {
+}, GA = /* @__PURE__ */ a(() => /* @__PURE__ */ E("rect", {
   width: "8",
   height: "53",
   fill: "#eaeaea"
@@ -568,7 +582,7 @@ const AA = {
   stroke: "#363636",
   "stroke-linecap": "round"
 }, null, -1)), zA = [
-  jA,
+  GA,
   UA,
   WA
 ], VA = {
@@ -589,50 +603,50 @@ const AA = {
   "stroke-linejoin": "round"
 }, null, -1)), XA = [
   FA
-], _A = { style: { margin: "0px", padding: "0px", "padding-bottom": "10px" } }, $A = { key: 1 }, Aw = /* @__PURE__ */ a(() => /* @__PURE__ */ E("br", null, null, -1)), ww = { class: "new_dashboard_table_scroll-indicator" }, Dw = /* @__PURE__ */ b('<div class="new_dashboard_table_scroll-indicator-content" data-v-dfa04844><svg width="17" height="22" viewBox="0 0 17 22" fill="none" xmlns="http://www.w3.org/2000/svg" data-v-dfa04844><path d="M8.5 8V5M8.5 21C4.63401 21 1.5 17.866 1.5 14V8C1.5 4.13401 4.63401 1 8.5 1C12.366 1 15.5 4.13401 15.5 8V14C15.5 17.866 12.366 21 8.5 21Z" stroke="#81807B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-v-dfa04844></path></svg><span style="color:#2EC666;" data-v-dfa04844>More...</span><svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" data-v-dfa04844><rect x="0.5" width="24" height="24" fill="url(#pattern0_3118_5452)" data-v-dfa04844></rect><defs data-v-dfa04844><pattern id="pattern0_3118_5452" patternContentUnits="objectBoundingBox" width="1" height="1" data-v-dfa04844><use xlink:href="#image0_3118_5452" transform="scale(0.0025)" data-v-dfa04844></use></pattern><image id="image0_3118_5452" width="400" height="400" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAGQCAYAAACAvzbMAAAAAXNSR0IArs4c6QAAFdBJREFUeF7t3dt220YSBVBKzk9bWZYoe8X+6VgYQxPNKLJlkkVcTgFbjzEbLO4q8qQBXm4O/ggQIECAQEHgprDGEgIECBAgcBAghoAAAQIESgICpMRmEQECBAgIEDNAgAABAiUBAVJis4gAAQIEBIgZIECAAIGSgAApsVlEgAABAgLEDBAgQIBASUCAlNgsIkCAAAEBYgYIECBAoCQgQEpsFhEgQICAADEDBAgQIFASECAlNosIECBAQICYAQIECBAoCQiQEptFBAgQICBAzAABAgQIlAQESInNIgIECBAQIGaAAAECBEoCAqTEZhEBAgQICBAzQIAAAQIlAQFSYrOIAAECBASIGSBAgACBkoAAKbFZRIAAAQICxAwQIECAQElAgJTYLCJAgAABAWIGCBAgQKAkIEBKbBYRIECAgAAxAwQIECBQEhAgJTaLCBAgQECAmAECBAgQKAkIkBKbRQQIECAgQMwAAQIECJQEBEiJzSICBAgQECBmgAABAgRKAgKkxGYRAQIECAgQM0CAAAECJQEBUmKziAABAgQEiBkgQIAAgZKAACmxWUSAAAECAsQMECBAgEBJQICU2CwiQIAAAQFiBggQIECgJCBASmwWESBAgIAAMQMECBAgUBIQICU2iwgQIEBAgJgBAgQIECgJCJASm0UECBAgIEDMAAECBAiUBARIic0iAgQIEBAgZoAAAQIESgICpMRmEQECBAgIEDNAgAABAiUBAVJis4gAAQIEBIgZIECAAIGSgAApsVlEgAABAgLEDBAgQIBASUCAlNgsIkCAAAEBYgYIECBAoCQgQEpsFhEgQICAADEDBAgQIFASECAlNosIECBAQICYAQIECBAoCQiQEptFBAgQICBAzAABAgQIlAQESInNIgIECBAQIGaAAAECBEoCAqTEZhEBAgQICBAzQIAAAQIlAQFSYrOIAAECBASIGSBAgACBkoAAKbFZRIAAAQICxAwQIECAQElAgJTYLCJAgAABAWIGCBAgQKAkIEBKbBYRIECAgAAxAwQIECBQEhAgJTaLCBAgQECAmAECBAgQKAkIkBKbRQQIECAgQMwAAQIECJQEBEiJzSICBAgQECBmgAABAgRKAgKkxGYRAQIECAgQM0CA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" data-v-dfa04844></image></defs></svg></div>', 1), iw = [
+], _A = { style: { margin: "0px", padding: "0px", "padding-bottom": "10px" } }, $A = { key: 1 }, Aw = /* @__PURE__ */ a(() => /* @__PURE__ */ E("br", null, null, -1)), ww = { class: "new_dashboard_table_scroll-indicator" }, Dw = /* @__PURE__ */ b('<div class="new_dashboard_table_scroll-indicator-content" data-v-44408cd4><svg width="17" height="22" viewBox="0 0 17 22" fill="none" xmlns="http://www.w3.org/2000/svg" data-v-44408cd4><path d="M8.5 8V5M8.5 21C4.63401 21 1.5 17.866 1.5 14V8C1.5 4.13401 4.63401 1 8.5 1C12.366 1 15.5 4.13401 15.5 8V14C15.5 17.866 12.366 21 8.5 21Z" stroke="#81807B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-v-44408cd4></path></svg><span style="color:#2EC666;" data-v-44408cd4>More...</span><svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" data-v-44408cd4><rect x="0.5" width="24" height="24" fill="url(#pattern0_3118_5452)" data-v-44408cd4></rect><defs data-v-44408cd4><pattern id="pattern0_3118_5452" patternContentUnits="objectBoundingBox" width="1" height="1" data-v-44408cd4><use xlink:href="#image0_3118_5452" transform="scale(0.0025)" data-v-44408cd4></use></pattern><image id="image0_3118_5452" width="400" height="400" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAGQCAYAAACAvzbMAAAAAXNSR0IArs4c6QAAFdBJREFUeF7t3dt220YSBVBKzk9bWZYoe8X+6VgYQxPNKLJlkkVcTgFbjzEbLO4q8qQBXm4O/ggQIECAQEHgprDGEgIECBAgcBAghoAAAQIESgICpMRmEQECBAgIEDNAgAABAiUBAVJis4gAAQIEBIgZIECAAIGSgAApsVlEgAABAgLEDBAgQIBASUCAlNgsIkCAAAEBYgYIECBAoCQgQEpsFhEgQICAADEDBAgQIFASECAlNosIECBAQICYAQIECBAoCQiQEptFBAgQICBAzAABAgQIlAQESInNIgIECBAQIGaAAAECBEoCAqTEZhEBAgQICBAzQIAAAQIlAQFSYrOIAAECBASIGSBAgACBkoAAKbFZRIAAAQICxAwQIECAQElAgJTYLCJAgAABAWIGCBAgQKAkIEBKbBYRIECAgAAxAwQIECBQEhAgJTaLCBAgQECAmAECBAgQKAkIkBKbRQQIECAgQMwAAQIECJQEBEiJzSICBAgQECBmgAABAgRKAgKkxGYRAQIECAgQM0CAAAECJQEBUmKziAABAgQEiBkgQIAAgZKAACmxWUSAAAECAsQMECBAgEBJQICU2CwiQIAAAQFiBggQIECgJCBASmwWESBAgIAAMQMECBAgUBIQICU2iwgQIEBAgJgBAgQIECgJCJASm0UECBAgIEDMAAECBAiUBARIic0iAgQIEBAgZoAAAQIESgICpMRmEQECBAgIEDNAgAABAiUBAVJis4gAAQIEBIgZIECAAIGSgAApsVlEgAABAgLEDBAgQIBASUCAlNgsIkCAAAEBYgYIECBAoCQgQEpsFhEgQICAADEDBAgQIFASECAlNosIECBAQICYAQIECBAoCQiQEptFBAgQICBAzAABAgQIlAQESInNIgIECBAQIGaAAAECBEoCAqTEZhEBAgQICBAzQIAAAQIlAQFSYrOIAAECBASIGSBAgACBkoAAKbFZRIAAAQICxAwQIECAQElAgJTYLCJAgAABAWIGCBAgQKAkIEBKbBYRIECAgAAxAwQIECBQEhAgJTaLCBAgQECAmAECBAgQKAkIkBKbRQQIECAgQMwAAQIECJQEBEiJzSICBAgQECBmgAABAgRKAgKkxGYRAQIECAgQM0CA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" data-v-44408cd4></image></defs></svg></div>', 1), iw = [
   Dw
-], Ew = { class: "new_dashboard_table_pagination-container" }, Iw = ["disabled"], ew = { class: "new_dashboard_table_pagination-numbers" }, tw = ["onClick"], ow = ["disabled"];
-function Pw(A, w, D, P, I, i) {
-  var s;
-  const n = y("VideoModal");
-  return o(), r(L, null, [
+], Ew = { class: "new_dashboard_table_pagination-container" }, Iw = ["disabled"], ew = { class: "new_dashboard_table_pagination-numbers" }, tw = ["onClick"], Pw = ["disabled"];
+function ow(A, w, D, r, e, i) {
+  var S;
+  const h = y("VideoModal");
+  return P(), o(L, null, [
     E("section", wA, [
       E("div", DA, [
         E("div", iA, [
           EA,
           E("div", {
             class: "new_dashboard_table_icon-tooltip-wrapper",
-            onMouseleave: w[1] || (w[1] = (...e) => i.handleTooltipLeave && i.handleTooltipLeave(...e)),
-            onMouseenter: w[2] || (w[2] = (e) => i.toggleTooltip("iconTooltip", e))
+            onMouseleave: w[1] || (w[1] = (...I) => i.handleTooltipLeave && i.handleTooltipLeave(...I)),
+            onMouseenter: w[2] || (w[2] = (I) => i.toggleTooltip("iconTooltip", I))
           }, [
-            (o(), r("svg", {
-              onClick: w[0] || (w[0] = (e) => i.togglePerformanceTooltip(e)),
+            (P(), o("svg", {
+              onClick: w[0] || (w[0] = (I) => i.togglePerformanceTooltip(I)),
               style: { cursor: "pointer", "margin-left": "10px" },
               width: "24",
               viewBox: "0 0 24 24",
               fill: "none",
               xmlns: "http://www.w3.org/2000/svg"
             }, eA)),
-            I.activeTooltip && I.activeTooltip !== "iconTooltip" ? (o(), r("div", {
+            e.activeTooltip && e.activeTooltip !== "iconTooltip" ? (P(), o("div", {
               key: 0,
               class: "new_dashboard_table_tooltip",
-              style: q(I.tooltipStyle)
+              style: q(e.tooltipStyle)
             }, [
-              v(h((s = I.columns.find((e) => e.id === I.activeTooltip)) == null ? void 0 : s.fullName) + " ", 1),
+              v(n((S = e.columns.find((I) => I.id === e.activeTooltip)) == null ? void 0 : S.fullName) + " ", 1),
               tA
             ], 4)) : g("", !0)
           ], 32),
-          E("div", oA, [
-            I.showPerformanceTooltip ? (o(), r("div", {
+          E("div", PA, [
+            e.showPerformanceTooltip ? (P(), o("div", {
               key: 0,
               class: "performance_tooltip",
-              style: q(I.performanceTooltipStyle)
+              style: q(e.performanceTooltipStyle)
             }, [
               E("div", null, [
-                PA,
+                oA,
                 rA,
                 E("button", {
-                  onClick: w[3] || (w[3] = (...e) => i.handleViewTutorial && i.handleViewTutorial(...e)),
+                  onClick: w[3] || (w[3] = (...I) => i.handleViewTutorial && i.handleViewTutorial(...I)),
                   style: { "background-color": "transparent", border: "1px solid #dddddd", "font-size": "12px", padding: "8px 12px", "border-radius": "6px", cursor: "pointer" }
                 }, "View Tutorial")
               ]),
@@ -640,64 +654,64 @@ function Pw(A, w, D, P, I, i) {
             ], 4)) : g("", !0)
           ])
         ]),
-        E("div", SA, [
-          E("div", sA, [
+        E("div", sA, [
+          E("div", SA, [
             Q(E("input", {
               id: "new_dashboard_table_search-bar_input",
               type: "text",
-              "onUpdate:modelValue": w[4] || (w[4] = (e) => I.searchQuery = e),
+              "onUpdate:modelValue": w[4] || (w[4] = (I) => e.searchQuery = I),
               placeholder: "Search by page",
-              onInput: w[5] || (w[5] = (...e) => i.filterTable && i.filterTable(...e))
+              onInput: w[5] || (w[5] = (...I) => i.filterTable && i.filterTable(...I))
             }, null, 544), [
-              [x, I.searchQuery]
+              [x, e.searchQuery]
             ]),
             RA
           ])
         ])
       ]),
       E("div", {
-        class: l(["new_dashboard_table_table-container", { new_dashboard_table_dragging: I.isDragging }])
+        class: l(["new_dashboard_table_table-container", { new_dashboard_table_dragging: e.isDragging }])
       }, [
-        I.isLoading ? (o(), r("div", gA, hA)) : g("", !0),
+        e.isLoading ? (P(), o("div", gA, nA)) : g("", !0),
         E("div", {
           class: "new_dashboard_table_scrollable-wrapper",
-          onScroll: w[13] || (w[13] = (...e) => i.handleScroll && i.handleScroll(...e))
+          onScroll: w[13] || (w[13] = (...I) => i.handleScroll && i.handleScroll(...I))
         }, [
           E("div", LA, [
-            (o(!0), r(L, null, C(I.columns, (e, S) => (o(), r("div", {
-              key: e.id,
+            (P(!0), o(L, null, C(e.columns, (I, s) => (P(), o("div", {
+              key: I.id,
               class: l(["new_dashboard_table_header-cell", {
-                "new_dashboard_table_fixed-column": e.fixed,
-                "new_dashboard_table_page-path": e.field === "screenshot_url",
-                new_dashboard_table_heatmap: e.field === "heatmap",
-                "new_dashboard_table_column-dragging": I.isDragging && I.draggedColumnIndex === S
+                "new_dashboard_table_fixed-column": I.fixed,
+                "new_dashboard_table_page-path": I.field === "screenshot_url",
+                new_dashboard_table_heatmap: I.field === "heatmap",
+                "new_dashboard_table_column-dragging": e.isDragging && e.draggedColumnIndex === s
               }]),
-              style: q(i.getColumnStyle(e)),
+              style: q(i.getColumnStyle(I)),
               draggable: "true",
-              onDragstart: (t) => i.dragStart(S, t),
+              onDragstart: (t) => i.dragStart(s, t),
               onDragend: w[8] || (w[8] = (...t) => i.dragEnd && i.dragEnd(...t)),
-              onDragover: u((t) => i.dragOver(t, S), ["prevent"]),
+              onDragover: u((t) => i.dragOver(t, s), ["prevent"]),
               onDragleave: w[9] || (w[9] = (...t) => i.dragLeave && i.dragLeave(...t)),
-              onDrop: (t) => i.drop(t, S)
+              onDrop: (t) => i.drop(t, s)
             }, [
               E("div", uA, [
                 E("span", {
                   class: "new_dashboard_table_header-text",
-                  onMouseover: (t) => i.showTooltip(e, t),
+                  onMouseover: (t) => i.showTooltip(I, t),
                   onMouseleave: w[6] || (w[6] = (...t) => i.hideTooltip && i.hideTooltip(...t))
                 }, [
-                  e.field === "rps" ? (o(), r("svg", qA, CA)) : g("", !0),
-                  v(" " + h(e.label), 1)
+                  I.field === "rps" ? (P(), o("svg", qA, CA)) : g("", !0),
+                  v(" " + n(I.label), 1)
                 ], 40, mA),
-                e.sortable ? (o(), r("span", {
+                I.sortable ? (P(), o("span", {
                   key: 0,
                   class: "new_dashboard_table_sort-indicator",
-                  onClick: u((t) => i.toggleSort(e), ["stop"])
+                  onClick: u((t) => i.toggleSort(I), ["stop"])
                 }, [
-                  e.sortDirection ? e.sortDirection === "asc" ? (o(), r("svg", JA, cA)) : (o(), r("svg", KA, xA)) : (o(), r("svg", QA, kA))
+                  I.sortDirection ? I.sortDirection === "asc" ? (P(), o("svg", JA, cA)) : (P(), o("svg", KA, xA)) : (P(), o("svg", QA, pA))
                 ], 8, dA)) : g("", !0)
               ]),
-              e.field === "screenshot_url" ? (o(), r("div", {
+              I.field === "screenshot_url" ? (P(), o("div", {
                 key: 0,
                 class: "new_dashboard_table_resizer-column",
                 onMousedown: w[7] || (w[7] = u((t) => i.initResize(t), ["prevent"]))
@@ -705,17 +719,17 @@ function Pw(A, w, D, P, I, i) {
             ], 46, lA))), 128))
           ]),
           E("div", YA, [
-            (o(!0), r(L, null, C(i.paginatedData, (e, S) => (o(), r("div", {
-              key: S,
-              class: l(["new_dashboard_table_table-row", { new_dashboard_table_striped: S % 2 === 1 }])
+            (P(!0), o(L, null, C(i.paginatedData, (I, s) => (P(), o("div", {
+              key: s,
+              class: l(["new_dashboard_table_table-row", { new_dashboard_table_striped: s % 2 === 1 }])
             }, [
-              (o(!0), r(L, null, C(I.columns, (t, m) => (o(), r("div", {
+              (P(!0), o(L, null, C(e.columns, (t, m) => (P(), o("div", {
                 key: t.id,
                 class: l(["new_dashboard_table_table-cell", {
                   "new_dashboard_table_fixed-column": t.fixed,
                   "new_dashboard_table_page-path": t.field === "screenshot_url",
                   new_dashboard_table_heatmap: t.field === "heatmap",
-                  "new_dashboard_table_column-dragging": I.isDragging && I.draggedColumnIndex === m
+                  "new_dashboard_table_column-dragging": e.isDragging && e.draggedColumnIndex === m
                 }]),
                 style: q(i.getColumnStyle(t)),
                 "data-type": i.getColumnType(t.field),
@@ -726,36 +740,36 @@ function Pw(A, w, D, P, I, i) {
                 onDragleave: w[12] || (w[12] = (...R) => i.dragLeave && i.dragLeave(...R)),
                 onDrop: (R) => i.drop(R, m)
               }, [
-                t.field === "heatmap" ? (o(), r("div", bA, [
+                t.field === "heatmap" ? (P(), o("div", bA, [
                   E("a", {
-                    href: e.heatmap
+                    href: I.heatmap
                   }, ZA, 8, OA)
-                ])) : t.field === "screenshot_url" ? (o(), r(L, { key: 1 }, [
+                ])) : t.field === "screenshot_url" ? (P(), o(L, { key: 1 }, [
                   E("a", {
-                    href: e[t.field],
+                    href: I[t.field],
                     target: "_blank",
                     rel: "noopener noreferrer",
                     id: "new_dashboard_table_page-url",
                     style: { "text-decoration": "none", color: "inherit" }
-                  }, h(e[t.field]), 9, NA),
+                  }, n(I[t.field]), 9, NA),
                   E("div", {
                     class: "new_dashboard_table_resizer-column",
                     onMousedown: w[10] || (w[10] = u((R) => i.initResize(R), ["prevent"]))
                   }, [
-                    S === 2 ? (o(), r("svg", GA, zA)) : g("", !0)
+                    s === 2 ? (P(), o("svg", jA, zA)) : g("", !0)
                   ], 32)
-                ], 64)) : (o(), r("span", {
+                ], 64)) : (P(), o("span", {
                   key: 2,
                   class: l({ new_dashboard_table_currency: i.isCurrency(t.field), new_dashboard_table_percentage: i.isPercentage(t.field) })
-                }, h(t.field === "device_type" ? i.formatDeviceType(e[t.field]) : i.formatValue(e[t.field], t.field)), 3))
+                }, n(t.field === "device_type" ? i.formatDeviceType(I[t.field]) : i.formatValue(I[t.field], t.field)), 3))
               ], 46, MA))), 128))
             ], 2))), 128)),
-            i.isEmptyState && !I.isLoading ? (o(), r("div", VA, [
+            i.isEmptyState && !e.isLoading ? (P(), o("div", VA, [
               E("div", fA, [
-                i.isSearchEmpty ? (o(), r("svg", HA, XA)) : g("", !0),
-                E("h3", _A, h(i.isSearchEmpty ? "No results found" : ""), 1),
-                i.isSearchEmpty ? (o(), r("p", $A, [
-                  v(` We couldn't find any results for "` + h(I.searchQuery) + '". ', 1),
+                i.isSearchEmpty ? (P(), o("svg", HA, XA)) : g("", !0),
+                E("h3", _A, n(i.isSearchEmpty ? "No results found" : ""), 1),
+                i.isSearchEmpty ? (P(), o("p", $A, [
+                  v(` We couldn't find any results for "` + n(e.searchQuery) + '". ', 1),
                   Aw,
                   v("Try adjusting your search to find what you're looking for. ")
                 ])) : g("", !0)
@@ -763,38 +777,41 @@ function Pw(A, w, D, P, I, i) {
             ])) : g("", !0)
           ]),
           Q(E("div", ww, iw, 512), [
-            [Y, I.showScrollIndicator]
+            [Y, e.showScrollIndicator]
           ])
         ], 32)
       ], 2),
       E("div", Ew, [
         E("button", {
           class: "new_dashboard_table_pagination-button new_dashboard_table_prev",
-          onClick: w[14] || (w[14] = (...e) => i.previousPageGroup && i.previousPageGroup(...e)),
-          disabled: i.isFirstGroup
+          onClick: w[14] || (w[14] = (...I) => i.previousPage && i.previousPage(...I)),
+          disabled: e.currentPage === 1
         }, " ← Prev ", 8, Iw),
         E("div", ew, [
-          (o(!0), r(L, null, C(i.displayedPageNumbers, (e) => (o(), r("span", {
-            key: e,
-            class: l(["new_dashboard_table_pagination-number", { new_dashboard_table_active: I.currentPage === e }]),
-            onClick: (S) => i.changePage(e)
-          }, h(e), 11, tw))), 128))
+          (P(!0), o(L, null, C(i.displayedPageNumbers, (I) => (P(), o("span", {
+            key: I,
+            class: l(["new_dashboard_table_pagination-number", {
+              new_dashboard_table_active: e.currentPage === I,
+              new_dashboard_table_ellipsis: I === "ellipsis"
+            }]),
+            onClick: (s) => I !== "ellipsis" && i.changePage(I)
+          }, n(I === "ellipsis" ? "..." : I), 11, tw))), 128))
         ]),
         E("button", {
           class: "new_dashboard_table_pagination-button new_dashboard_table_next",
-          onClick: w[15] || (w[15] = (...e) => i.nextPageGroup && i.nextPageGroup(...e)),
-          disabled: i.isLastGroup
-        }, " Next → ", 8, ow)
+          onClick: w[15] || (w[15] = (...I) => i.nextPage && i.nextPage(...I)),
+          disabled: e.currentPage === i.totalPages
+        }, " Next → ", 8, Pw)
       ])
     ]),
-    M(n, {
-      show: I.showVideoModal,
-      "video-source": I.videoSource,
-      onClose: w[16] || (w[16] = (e) => I.showVideoModal = !1)
+    M(h, {
+      show: e.showVideoModal,
+      "video-source": e.videoSource,
+      onClose: w[16] || (w[16] = (I) => e.showVideoModal = !1)
     }, null, 8, ["show", "video-source"])
   ], 64);
 }
-const aw = /* @__PURE__ */ J(AA, [["render", Pw], ["__scopeId", "data-v-dfa04844"]]);
+const aw = /* @__PURE__ */ J(AA, [["render", ow], ["__scopeId", "data-v-44408cd4"]]);
 export {
   aw as HeatmapDashboardTable
 };
