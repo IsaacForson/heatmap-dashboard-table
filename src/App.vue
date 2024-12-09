@@ -116,7 +116,42 @@
               <template v-if="column.field === 'heatmap'">
                 <div class="new_dashboard_table_heatmap-icon">
                   <a :href="row.heatmap">
-                    <img style="width: 32px; height: 32px;" src="./assets/heatmap.png" alt="Heatmap">
+                    
+<svg width="37" height="36" viewBox="0 0 37 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_dii_362_57883)">
+<rect x="2.5" y="1" width="32" height="32" rx="16" fill="#2EC666"/>
+<rect x="3.5" y="2" width="30" height="30" rx="15" stroke="url(#paint0_linear_362_57883)" stroke-width="2"/>
+<path d="M26.8334 16.9993H23.5M13.5 16.9993H10.1667M18.5 11.9993V8.66602M18.5 25.3327V21.9993M25.1667 16.9993C25.1667 20.6812 22.1819 23.666 18.5 23.666C14.8181 23.666 11.8334 20.6812 11.8334 16.9993C11.8334 13.3175 14.8181 10.3327 18.5 10.3327C22.1819 10.3327 25.1667 13.3175 25.1667 16.9993ZM21 16.9993C21 18.3801 19.8807 19.4993 18.5 19.4993C17.1193 19.4993 16 18.3801 16 16.9993C16 15.6186 17.1193 14.4993 18.5 14.4993C19.8807 14.4993 21 15.6186 21 16.9993Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<filter id="filter0_dii_362_57883" x="0.5" y="0" width="36" height="36" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="1"/>
+<feGaussianBlur stdDeviation="1"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.0392157 0 0 0 0 0.0496732 0 0 0 0 0.0705882 0 0 0 0.05 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_362_57883"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_362_57883" result="shape"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="-2"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.0392157 0 0 0 0 0.0496732 0 0 0 0 0.0705882 0 0 0 0.05 0"/>
+<feBlend mode="normal" in2="shape" result="effect2_innerShadow_362_57883"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feMorphology radius="1" operator="erode" in="SourceAlpha" result="effect3_innerShadow_362_57883"/>
+<feOffset/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.0392157 0 0 0 0 0.0496732 0 0 0 0 0.0705882 0 0 0 0.18 0"/>
+<feBlend mode="normal" in2="effect2_innerShadow_362_57883" result="effect3_innerShadow_362_57883"/>
+</filter>
+<linearGradient id="paint0_linear_362_57883" x1="18.5" y1="1" x2="18.5" y2="33" gradientUnits="userSpaceOnUse">
+<stop stop-color="white" stop-opacity="0.12"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+</defs>
+</svg>
+
                   </a>
                 </div>
               </template>
@@ -610,25 +645,28 @@ changePage(page) {
   }
 },
 
-    toggleSort(column) {
-      if (!column.sortable) return
+toggleSort(column) {
+  if (!column.sortable) return
 
-      if (!column.sortDirection) {
-        column.sortDirection = 'asc'
-      } else if (column.sortDirection === 'asc') {
-        column.sortDirection = 'desc'
-      } else {
-        column.sortDirection = null
-      }
+  if (!column.sortDirection) {
+    column.sortDirection = 'desc' // First click: highest first
+  } else if (column.sortDirection === 'desc') {
+    column.sortDirection = 'asc'  // Second click: lowest first
+  } else {
+    column.sortDirection = null   // Third click: reset
+    // Reset the data to original order
+    this.tableData = [...this.originalTableData]
+    return
+  }
 
-      this.columns.forEach(col => {
-        if (col.id !== column.id) {
-          col.sortDirection = null
-        }
-      })
+  this.columns.forEach(col => {
+    if (col.id !== column.id) {
+      col.sortDirection = null
+    }
+  })
 
-      this.sortTable(column)
-    },
+  this.sortTable(column)
+},
 
     sortTable(column) {
       if (!column.sortDirection) return
@@ -1344,9 +1382,29 @@ body,
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+.new_dashboard_table_heatmap-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  margin-top: 7px;
+}
+
 .new_dashboard_table_heatmap-icon img {
-  width: 24px;
-  height: 24px;
+
+  display: block;
+  object-fit: contain;
+}
+
+/* Make sure the table cell containing the heatmap has proper height */
+.new_dashboard_table_table-cell.new_dashboard_table_heatmap {
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0px;
 }
 
 .new_dashboard_table_tooltip {
