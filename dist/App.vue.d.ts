@@ -2,6 +2,19 @@ export default _sfc_main;
 declare namespace _sfc_main {
     const components: undefined;
     function data(): {
+        showSummary: boolean;
+        isClosing: boolean;
+        summaryData: {
+            pages: number;
+            revenue: number;
+            purchases: number;
+            sessions: number;
+            pageviews: number;
+            time_on_site: number;
+            aov: number;
+            rps: number;
+            conv_rate: number;
+        };
         showPerformanceTooltip: boolean;
         performanceTooltipStyle: {
             top: string;
@@ -66,6 +79,7 @@ declare namespace _sfc_main {
     function mounted(): void;
     function beforeUnmount(): void;
     namespace methods {
+        function toggleSummary(): void;
         function togglePerformanceTooltip(event: any): void;
         function handleClickOutside(event: any): void;
         function handlePageReload(): void;

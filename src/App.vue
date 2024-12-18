@@ -38,15 +38,31 @@
       </div>
       </div>
       <div class="new_dashboard_table_search-bar-container">
-        <div class="new_dashboard_table_search-bar">
-          <input id="new_dashboard_table_search-bar_input" type="text" v-model="searchQuery" placeholder="Search by page" @input="filterTable" />
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" id="new_dashboard_table_search-icon">
-            <path
-              d="M15.5 15.5L12.5834 12.5833M14.6667 7.58333C14.6667 11.4954 11.4954 14.6667 7.58333 14.6667C3.67132 14.6667 0.5 11.4954 0.5 7.58333C0.5 3.67132 3.67132 0.5 7.58333 0.5C11.4954 0.5 14.6667 3.67132 14.6667 7.58333Z"
-              stroke="#717680" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
-        </div>
-      </div>
+  <!-- Add the Total button here -->
+  <button 
+  class="new_dashboard_table_summary-button" 
+  @click="toggleSummary"
+>
+  Total
+  <svg 
+    :class="{'rotate': showSummary}" 
+    width="12" 
+    height="12" 
+    viewBox="0 0 12 12" 
+    fill="none" 
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</button>
+
+  <div class="new_dashboard_table_search-bar">
+    <input id="new_dashboard_table_search-bar_input" type="text" v-model="searchQuery" placeholder="Search by page" @input="filterTable" />
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" id="new_dashboard_table_search-icon">
+      <path d="M15.5 15.5L12.5834 12.5833M14.6667 7.58333C14.6667 11.4954 11.4954 14.6667 7.58333 14.6667C3.67132 14.6667 0.5 11.4954 0.5 7.58333C0.5 3.67132 3.67132 0.5 7.58333 0.5C11.4954 0.5 14.6667 3.67132 14.6667 7.58333Z" stroke="#717680" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  </div>
+</div>
     </div>
 
     <div class="new_dashboard_table_table-container" :class="{ 'new_dashboard_table_dragging': isDragging }">
@@ -217,6 +233,55 @@
       </div>
     </div>
 
+<!-- total -->
+<div class="new_dashboard_table_summary-section">
+  <div 
+    v-if="showSummary" 
+    class="new_dashboard_table_summary-cards"
+    :class="{
+      'fade-in': !isClosing,
+      'fade-out': isClosing
+    }"
+  >
+    <div class="summary-card">
+      <span class="card-label">Pages</span>
+      <span class="card-value">{{ formatValue(summaryData.pages, 'pages') }}</span>
+    </div>
+    <div class="summary-card">
+      <span class="card-label">Revenue</span>
+      <span class="card-value">${{ formatValue(summaryData.revenue, 'total_rev') }}</span>
+    </div>
+    <div class="summary-card">
+      <span class="card-label">Purchases</span>
+      <span class="card-value">{{ formatValue(summaryData.purchases, 'purchases') }}</span>
+    </div>
+    <div class="summary-card">
+      <span class="card-label">Sessions</span>
+      <span class="card-value">{{ formatValue(summaryData.sessions, 'unique_visit') }}</span>
+    </div>
+    <div class="summary-card">
+      <span class="card-label">Page Views</span>
+      <span class="card-value">{{ formatValue(summaryData.pageviews, 'total_loghsr') }}</span>
+    </div>
+    <div class="summary-card">
+      <span class="card-label">Time on Site</span>
+      <span class="card-value">{{ formatValue(summaryData.time_on_site, 'time_on_page') }}</span>
+    </div>
+    <div class="summary-card">
+      <span class="card-label">AOV</span>
+      <span class="card-value">${{ formatValue(summaryData.aov, 'aov') }}</span>
+    </div>
+    <div class="summary-card">
+      <span class="card-label">RPS</span>
+      <span class="card-value">${{ formatValue(summaryData.rps, 'rps') }}</span>
+    </div>
+    <div class="summary-card">
+      <span class="card-label">Conversion Rate</span>
+      <span class="card-value">{{ formatValue(summaryData.conv_rate, 'conv_rate') }}%</span>
+    </div>
+  </div>
+</div>
+<!-- total ends -->
     <div class="new_dashboard_table_pagination-container">
       <button 
   class="new_dashboard_table_pagination-button new_dashboard_table_prev" 
@@ -257,6 +322,19 @@ export default {
   },
   data() {
     return {
+      showSummary: false,
+      isClosing: false,
+      summaryData: {
+        pages: 0,
+        revenue: 0,
+        purchases: 0,
+        sessions: 0,
+        pageviews: 0,
+        time_on_site: 0,
+        aov: 0,
+        rps: 0,
+        conv_rate: 0
+      },
       showPerformanceTooltip: false,
     performanceTooltipStyle: {
       top: '0px',
@@ -402,6 +480,18 @@ export default {
     }
   },
   methods: {
+    toggleSummary() {
+    if (this.showSummary) {
+      this.isClosing = true;
+      setTimeout(() => {
+        this.showSummary = false;
+        this.isClosing = false;
+      }, 100); // Match this with animation duration
+    } else {
+      this.showSummary = true;
+    }
+  },
+
     togglePerformanceTooltip(event) {
     this.showPerformanceTooltip = !this.showPerformanceTooltip;
     
@@ -555,51 +645,54 @@ nextPageGroup() {
     },
 
     async fetchHeatmapData() {
-      this.isLoading = true
-      try {
-        const urlParams = new URLSearchParams(window.location.search)
-        const idSite = urlParams.get('idSite') || 4
-        const response = await fetch('https://hmd.heatmap.com/root', {
-          method: 'POST',
-          body: JSON.stringify({
-            method: 'heatmapDataMetric',
-            idSite,
-            period: "month",
-            request: "portal"
-          })
-        })
+  this.isLoading = true;
+  try {
+    const urlParams = new URLSearchParams(window.location.search);
+    const idSite = urlParams.get('idSite') || 4;
+    const response = await fetch('https://hmd.heatmap.com/root', {
+      method: 'POST',
+      body: JSON.stringify({
+        method: 'heatmapDataMetric',
+        idSite,
+        period: "month",
+        request: "portal"
+      })
+    });
 
-        const data = await response.json()
+    const data = await response.json();
 
-        this.tableData = data.heatmaps.map(item => ({
-          heatmap: item.heatmap,
-          screenshot_url: item.url,
-          total_loghsr: item.pageviews,
-          unique_visit: item.sessions,
-          purchases: item.purchases,
-          total_rev: item.revenue,
-          rps: item.rps,
-          aov: item.aov,
-          conv_rate: item.conv_rate,
-          scroll: item.scroll,
-          time_on_page: item.time_on_page
-        }))
-        
-        this.originalTableData = [...this.tableData]
+    // Update summary data
+    this.summaryData = data.summary;
 
-        this.$nextTick(() => {
-          const scrollableWrapper = document.querySelector('.new_dashboard_table_scrollable-wrapper');
-          if (scrollableWrapper) {
-            this.checkScrollable(scrollableWrapper);
-          }
-        });
+    this.tableData = data.heatmaps.map(item => ({
+      heatmap: item.heatmap,
+      screenshot_url: item.url,
+      total_loghsr: item.pageviews,
+      unique_visit: item.sessions,
+      purchases: item.purchases,
+      total_rev: item.revenue,
+      rps: item.rps,
+      aov: item.aov,
+      conv_rate: item.conv_rate,
+      scroll: item.scroll,
+      time_on_page: item.time_on_page
+    }));
+    
+    this.originalTableData = [...this.tableData];
 
-      } catch (error) {
-        // console.error('Error fetching heatmap data:', error)
-      } finally {
-        this.isLoading = false
+    this.$nextTick(() => {
+      const scrollableWrapper = document.querySelector('.new_dashboard_table_scrollable-wrapper');
+      if (scrollableWrapper) {
+        this.checkScrollable(scrollableWrapper);
       }
-    },
+    });
+
+  } catch (error) {
+    console.error('Error fetching heatmap data:', error);
+  } finally {
+    this.isLoading = false;
+  }
+},
 
     filterTable() {
       if (!this.searchQuery) {
@@ -649,12 +742,11 @@ toggleSort(column) {
   if (!column.sortable) return
 
   if (!column.sortDirection) {
-    column.sortDirection = 'desc' // First click: highest first
+    column.sortDirection = 'desc'
   } else if (column.sortDirection === 'desc') {
-    column.sortDirection = 'asc'  // Second click: lowest first
+    column.sortDirection = 'asc'
   } else {
-    column.sortDirection = null   // Third click: reset
-    // Reset the data to original order
+    column.sortDirection = null
     this.tableData = [...this.originalTableData]
     return
   }
@@ -1034,7 +1126,7 @@ body,
   background: white;
   overflow: hidden;
   border-top: 1px solid #eaeaea;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
   min-height: 400px;
   display: flex;
   flex-direction: column;
@@ -1114,6 +1206,7 @@ body,
 .new_dashboard_table_search-bar-container {
   display: flex;
   align-items: center;
+  gap: 16px; /* Add gap between search bar and button */
   padding-right: 28px;
 }
 
@@ -1672,4 +1765,113 @@ body,
   transform-origin: top center;
 }
 
+/* total styling */
+.new_dashboard_table_summary-section {
+  margin: 20px;
+  padding: 0 28px;
+}
+
+.new_dashboard_table_summary-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: white;
+  cursor: pointer;
+  font-size: 14px;
+  color: #333;
+  transition: all 0.2s ease;
+  height: 41.5px;
+}
+
+
+.new_dashboard_table_summary-button:hover {
+  background: #f5f5f5;
+}
+
+.new_dashboard_table_summary-button svg {
+  transition: transform 0.2s ease;
+}
+
+.new_dashboard_table_summary-button svg.rotate {
+  transform: rotate(180deg);
+}
+
+.new_dashboard_table_summary-cards {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 16px;
+  width: 100%;
+}
+
+.summary-card {
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.card-label {
+  font-size: 12px;
+  color: #666;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-value {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.fade-out {
+  animation: fadeOut 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
 </style>
