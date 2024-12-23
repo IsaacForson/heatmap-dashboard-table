@@ -86,41 +86,54 @@
       <div class="new_dashboard_table_scrollable-wrapper" @scroll="handleScroll">
         <div class="new_dashboard_table_table-header">
           <div v-for="(column, colIndex) in columns" :key="column.id" 
-          class="new_dashboard_table_header-cell" 
-          :class="{
-            'new_dashboard_table_fixed-column': column.fixed,
-            'new_dashboard_table_page-path': column.field === 'screenshot_url',
-            'new_dashboard_table_heatmap': column.field === 'heatmap',
-            'new_dashboard_table_column-dragging': isDragging && draggedColumnIndex === colIndex,
-          }" :style="getColumnStyle(column)" draggable="true" @dragstart="dragStart(colIndex, $event)"
-            @dragend="dragEnd" @dragover.prevent="dragOver($event, colIndex)" @dragleave="dragLeave"
-            @drop="drop($event, colIndex)">
-            <div class="new_dashboard_table_header-content">
-              <span class="new_dashboard_table_header-text" @mouseover="showTooltip(column, $event)"
-                @mouseleave="hideTooltip">
-                <svg v-if="column.field === 'rps'" width="12"  viewBox="0 0 12 14" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 6px; pointer-events: none;">
-                  <path d="M11.3333 10.3333H0.666626M0.666626 10.3333L3.33329 7.66667M0.666626 10.3333L3.33329 13M0.666626 3.66667H11.3333M11.3333 3.66667L8.66663 1M11.3333 3.66667L8.66663 6.33333" stroke="#2EC666" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                {{ column.label }}
-              </span>
-              <span v-if="column.sortable" class="new_dashboard_table_sort-indicator" @click.stop="toggleSort(column)">
-                <svg v-if="!column.sortDirection" width="17" height="16" viewBox="0 0 17 16" fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path d="M4.5 8H12.5M2.5 4H14.5M6.5 12H10.5" stroke="#ABABAB" stroke-width="0.5"
-                    stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-                <svg v-else width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg"
-                  :style="{ transform: column.sortDirection === 'asc' ? 'scaleY(-1)' : 'scaleY(1)' }">
-                  <path
-                    d="M9 8.05556H13.3333M9 3.72222H15.5M9 12.3889H11.1667M4.66667 13.1111V3M4.66667 13.1111L2.5 10.9444M4.66667 13.1111L6.83333 10.9444"
-                    stroke="#2EC666" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-              </span>
-            </div>
-
-            <div v-if="column.field === 'screenshot_url'" class="new_dashboard_table_resizer-column"
-              @mousedown.prevent="initResize($event)"></div>
-          </div>
+  class="new_dashboard_table_header-cell" 
+  :class="{
+    'new_dashboard_table_fixed-column': column.fixed,
+    'new_dashboard_table_page-path': column.field === 'screenshot_url',
+    'new_dashboard_table_heatmap': column.field === 'heatmap',
+    'new_dashboard_table_column-dragging': isDragging && draggedColumnIndex === colIndex,
+  }" 
+  :style="getColumnStyle(column)" 
+  draggable="true" 
+  @dragstart="dragStart(colIndex, $event)"
+  @dragend="dragEnd" 
+  @dragover.prevent="dragOver($event, colIndex)" 
+  @dragleave="dragLeave"
+  @drop="drop($event, colIndex)">
+  <div class="new_dashboard_table_header-content">
+    <span class="new_dashboard_table_header-text" @mouseover="showTooltip(column, $event)"
+      @mouseleave="hideTooltip">
+      <svg v-if="column.field !== 'heatmap' && column.field !== 'screenshot_url'" 
+        class="header-arrow-icon" 
+        width="12" 
+        viewBox="0 0 12 14" 
+        fill="none" 
+        xmlns="http://www.w3.org/2000/svg" 
+        style="margin-right: 6px; pointer-events: none;">
+        <path d="M11.3333 10.3333H0.666626M0.666626 10.3333L3.33329 7.66667M0.666626 10.3333L3.33329 13M0.666626 3.66667H11.3333M11.3333 3.66667L8.66663 1M11.3333 3.66667L8.66663 6.33333" 
+          stroke="#2EC666" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"/>
+      </svg>
+      {{ column.label }}
+    </span>
+    <span v-if="column.sortable" class="new_dashboard_table_sort-indicator" @click.stop="toggleSort(column)">
+      <svg v-if="!column.sortDirection" width="17" height="16" viewBox="0 0 17 16" fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <path d="M4.5 8H12.5M2.5 4H14.5M6.5 12H10.5" stroke="#ABABAB" stroke-width="0.5"
+          stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+      <svg v-else width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg"
+        :style="{ transform: column.sortDirection === 'asc' ? 'scaleY(-1)' : 'scaleY(1)' }">
+        <path
+          d="M9 8.05556H13.3333M9 3.72222H15.5M9 12.3889H11.1667M4.66667 13.1111V3M4.66667 13.1111L2.5 10.9444M4.66667 13.1111L6.83333 10.9444"
+          stroke="#2EC666" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </span>
+  </div>
+  <div v-if="column.field === 'screenshot_url'" class="new_dashboard_table_resizer-column"
+    @mousedown.prevent="initResize($event)"></div>
+</div>
         </div>
 
         <div class="new_dashboard_table_table-body">
@@ -131,9 +144,7 @@
               'new_dashboard_table_page-path': column.field === 'screenshot_url',
               'new_dashboard_table_heatmap': column.field === 'heatmap',
               'new_dashboard_table_column-dragging': isDragging && draggedColumnIndex === colIndex,
-            }" :style="getColumnStyle(column)" :data-type="getColumnType(column.field)" draggable="true"
-              @dragstart="dragStart(colIndex, $event)" @dragend="dragEnd" @dragover.prevent="dragOver($event, colIndex)"
-              @dragleave="dragLeave" @drop="drop($event, colIndex)">
+            }" :style="getColumnStyle(column)" :data-type="getColumnType(column.field)">
               <template v-if="column.field === 'heatmap'">
                 <div class="new_dashboard_table_heatmap-icon">
                   <a :href="row.heatmap">
@@ -177,8 +188,7 @@
                 </div>
               </template>
               <template v-else-if="column.field === 'screenshot_url'">
-                <a :href="row[column.field]" 
-                  target="_blank" 
+                <a :href="row['heatmap']" 
                   rel="noopener noreferrer" 
                   id="new_dashboard_table_page-url" 
                   style="text-decoration: none; color: inherit;">
@@ -872,12 +882,16 @@ toggleSort(column) {
     },
 
     dragStart(index, event) {
+  if (!event.target.closest('.new_dashboard_table_header-cell')) {
+    event.preventDefault();
+    return;
+  }
+
   if (this.columns[index].fixed) {
     event.preventDefault();
     return;
   }
 
-  // Prevent dragging when interacting with sortable icons or header text
   if (
     event.target.classList.contains('new_dashboard_table_header-text') ||
     event.target.classList.contains('new_dashboard_table_sort-indicator')
@@ -889,6 +903,12 @@ toggleSort(column) {
   this.isDragging = true;
   this.draggedColumnIndex = index;
   this.draggedColumn = this.columns[index];
+
+  // Hide all arrow icons during drag
+  const arrowIcons = document.querySelectorAll('.header-arrow-icon');
+  arrowIcons.forEach(icon => {
+    icon.style.opacity = '0';
+  });
 
   // Add 'dragged-column' class to make the original column appear empty
   this.$nextTick(() => {
@@ -964,14 +984,20 @@ dragOver(event, overIndex) {
     },
 
     dragEnd() {
-      this.isDragging = false
-      this.draggedColumnIndex = null
-      this.dragOverColumnIndex = null
-      this.draggedColumn = null
+  this.isDragging = false;
+  this.draggedColumnIndex = null;
+  this.dragOverColumnIndex = null;
+  this.draggedColumn = null;
 
-      const draggingCells = document.querySelectorAll('.new_dashboard_table_dragging-column')
-      draggingCells.forEach(cell => cell.classList.remove('new_dashboard_table_dragging-column'))
-    },
+  // Reset arrow icon visibility rules
+  const arrowIcons = document.querySelectorAll('.header-arrow-icon');
+  arrowIcons.forEach(icon => {
+    icon.style.opacity = ''; // Remove inline style to let CSS rules take over
+  });
+
+  const draggingCells = document.querySelectorAll('.new_dashboard_table_dragging-column');
+  draggingCells.forEach(cell => cell.classList.remove('new_dashboard_table_dragging-column'));
+},
 
     drop(event, dropIndex) {
   event.preventDefault();
@@ -1349,7 +1375,7 @@ body,
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: grabbing;
+  cursor: text;
   position: relative;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -1902,5 +1928,19 @@ body,
     opacity: 0;
     transform: translateY(-10px);
   }
+}
+
+/* arrow style */
+.header-arrow-icon {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.new_dashboard_table_header-cell:hover .header-arrow-icon {
+  opacity: 1;
+}
+
+.new_dashboard_table_column-dragging .header-arrow-icon {
+  opacity: 0;
 }
 </style>
