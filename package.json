@@ -42,7 +42,8 @@
     "axios": "^1.7.2",
     "sass": "^1.62.1",
     "vite-plugin-css-injected-by-js": "^3.5.1",
-    "vue": "^3.2.47"
+    "vue": "^3.2.47",
+    "xlsx": "^0.18.5"
   },
   "peerDependencies": {
     "vue": "^3.0.0"

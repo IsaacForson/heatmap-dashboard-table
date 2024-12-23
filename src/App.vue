@@ -319,7 +319,8 @@
 </template>
 
 <script>
-import VideoModal from './VideoModal.vue'
+import VideoModal from './VideoModal.vue';
+import * as XLSX from 'xlsx';
 
 export default {
   components: {
@@ -486,45 +487,28 @@ export default {
   },
   methods: {
     exportToExcel() {
-  // Create array of headers
-  const headers = this.columns
-    .filter(col => col.field !== 'heatmap') // Exclude heatmap column
-    .map(col => col.label);
+    // Prepare the data
+    const exportData = this.originalTableData.map(row => ({
+      'Page Path': row.screenshot_url || '',
+      'Sessions': row.unique_visit || 0,
+      'RPS': row.rps || 0,
+      'Revenue': row.total_rev || 0,
+      'CVR': (row.conv_rate || 0) + '%',
+      'AOV': row.aov ? `$${this.formatValue(row.aov, 'aov')}` : '$0.00',
+      'Purchases': row.purchases || 0,
+      'Scroll Depth': `${Math.floor(row.scroll || 0)}%`,
+      'Time on Page': this.formatValue(row.time_on_page || 0, 'time_on_page')
+    }));
   
-  // Create array of rows
-  const rows = this.originalTableData.map(row => {
-    return this.columns
-      .filter(col => col.field !== 'heatmap')
-      .map(col => {
-        let value;
-        if (col.field === 'screenshot_url') {
-          value = `"${row[col.field]}"`; // Wrap URLs in quotes
-        } else {
-          value = this.formatValue(row[col.field], col.field);
-        }
-        // Ensure no commas in numbers break the CSV
-        if (typeof value === 'number') {
-          value = `"${value}"`;
-        }
-        return value;
-      });
-  });
-
-  // Combine headers and rows
-  const csvContent = [
-    headers.join(','),
-    ...rows.map(row => row.join(','))
-  ].join('\n');
-
-  // Create blob and download
-  const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-  const link = document.createElement('a');
-  const url = URL.createObjectURL(blob);
-  link.setAttribute('href', url);
-  link.setAttribute('download', `page_performance_${new Date().toISOString().split('T')[0]}.csv`);
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
+    // Create worksheet
+    const ws = XLSX.utils.json_to_sheet(exportData);
+    
+    // Create workbook
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, "Page Performance");
+    
+    // Save file
+    XLSX.writeFile(wb, `page_performance_${new Date().toISOString().split('T')[0]}.xlsx`);
 },
 
     toggleSummary() {
