@@ -62,6 +62,17 @@
       <path d="M15.5 15.5L12.5834 12.5833M14.6667 7.58333C14.6667 11.4954 11.4954 14.6667 7.58333 14.6667C3.67132 14.6667 0.5 11.4954 0.5 7.58333C0.5 3.67132 3.67132 0.5 7.58333 0.5C11.4954 0.5 14.6667 3.67132 14.6667 7.58333Z" stroke="#717680" stroke-linecap="round" stroke-linejoin="round" />
     </svg>
   </div>
+
+  <button 
+    class="new_dashboard_table_summary-button" 
+    @click="exportToExcel"
+    style="margin-right: 10px;"
+  >
+    Export <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M17.5 12.5V13.5C17.5 14.9001 17.5 15.6002 17.2275 16.135C16.9878 16.6054 16.6054 16.9878 16.135 17.2275C15.6002 17.5 14.9001 17.5 13.5 17.5H6.5C5.09987 17.5 4.3998 17.5 3.86502 17.2275C3.39462 16.9878 3.01217 16.6054 2.77248 16.135C2.5 15.6002 2.5 14.9001 2.5 13.5V12.5M14.1667 8.33333L10 12.5M10 12.5L5.83333 8.33333M10 12.5V2.5" stroke="#079455" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+  </button>
 </div>
     </div>
 
@@ -98,14 +109,8 @@
                   <path d="M4.5 8H12.5M2.5 4H14.5M6.5 12H10.5" stroke="#ABABAB" stroke-width="0.5"
                     stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
-                <svg v-else-if="column.sortDirection === 'asc'" width="17" height="16" viewBox="0 0 17 16" fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M9 8.05556H13.3333M9 3.72222H15.5M9 12.3889H11.1667M4.66667 13.1111V3M4.66667 13.1111L2.5 10.9444M4.66667 13.1111L6.83333 10.9444"
-                    stroke="#2EC666" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
                 <svg v-else width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg"
-                  style="transform: rotate(180deg)">
+                  :style="{ transform: column.sortDirection === 'asc' ? 'scaleY(-1)' : 'scaleY(1)' }">
                   <path
                     d="M9 8.05556H13.3333M9 3.72222H15.5M9 12.3889H11.1667M4.66667 13.1111V3M4.66667 13.1111L2.5 10.9444M4.66667 13.1111L6.83333 10.9444"
                     stroke="#2EC666" stroke-linecap="round" stroke-linejoin="round" />
@@ -376,7 +381,7 @@ export default {
         { id: 9, label: 'AOV', field: 'aov', sortable: true, fullName: 'Average Order Value', sortDirection: null },
         { id: 6, label: 'Purchases', field: 'purchases', sortable: true, fullName: 'Total Number of Purchases', sortDirection: null },
         { id: 3, label: 'Scroll Depth', field: 'scroll', sortable: true, fullName: 'Scroll Depth', sortDirection: null },
-        { id: 4, label: 'Page Views', field: 'total_loghsr', sortable: true, fullName: 'Total Number of Page Views', sortDirection: null },
+        // { id: 4, label: 'Page Views', field: 'total_loghsr', sortable: true, fullName: 'Total Number of Page Views', sortDirection: null },
         { id: 11, label: 'Time on Page', field: 'time_on_page', sortable: true, fullName: 'Average Time on Page (seconds)', sortDirection: null },
       ],
       tableData: [],
@@ -480,6 +485,48 @@ export default {
     }
   },
   methods: {
+    exportToExcel() {
+  // Create array of headers
+  const headers = this.columns
+    .filter(col => col.field !== 'heatmap') // Exclude heatmap column
+    .map(col => col.label);
+  
+  // Create array of rows
+  const rows = this.originalTableData.map(row => {
+    return this.columns
+      .filter(col => col.field !== 'heatmap')
+      .map(col => {
+        let value;
+        if (col.field === 'screenshot_url') {
+          value = `"${row[col.field]}"`; // Wrap URLs in quotes
+        } else {
+          value = this.formatValue(row[col.field], col.field);
+        }
+        // Ensure no commas in numbers break the CSV
+        if (typeof value === 'number') {
+          value = `"${value}"`;
+        }
+        return value;
+      });
+  });
+
+  // Combine headers and rows
+  const csvContent = [
+    headers.join(','),
+    ...rows.map(row => row.join(','))
+  ].join('\n');
+
+  // Create blob and download
+  const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+  const link = document.createElement('a');
+  const url = URL.createObjectURL(blob);
+  link.setAttribute('href', url);
+  link.setAttribute('download', `page_performance_${new Date().toISOString().split('T')[0]}.csv`);
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+},
+
     toggleSummary() {
     if (this.showSummary) {
       this.isClosing = true;
@@ -679,6 +726,13 @@ nextPageGroup() {
     }));
     
     this.originalTableData = [...this.tableData];
+
+    // Set default sort for Sessions column
+    const sessionsColumn = this.columns.find(col => col.field === 'unique_visit');
+    if (sessionsColumn) {
+      sessionsColumn.sortDirection = 'desc';
+      this.tableData.sort((a, b) => b.unique_visit - a.unique_visit);
+    }
 
     this.$nextTick(() => {
       const scrollableWrapper = document.querySelector('.new_dashboard_table_scrollable-wrapper');
@@ -995,46 +1049,37 @@ dragOver(event, overIndex) {
     },
 
     formatValue(value, field) {
-      if (value === null || value === undefined) return '0';
+  if (value === null || value === undefined) return '0';
 
-      if (field === 'time_on_page') {
-        return `${value}s`;
-      }
+  if (field === 'time_on_page') {
+    const seconds = parseInt(value);
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
+  }
 
-      if (['rps', 'total_rev', 'aov'].includes(field)) {
-        const num = parseFloat(value);
-        
-        if (num >= 1000000) {
-          return (num / 1000000).toFixed(1) + 'M';
-        }
-        
-        if (num >= 1000) {
-          return (num / 1000).toFixed(1) + 'K';
-        }
-        
-        return num.toLocaleString('en-US', {
-          minimumFractionDigits: 2,
-          maximumFractionDigits: 2
-        });
-      }
+  if (['rps', 'total_rev', 'aov'].includes(field)) {
+    const num = parseFloat(value);
+    return num.toLocaleString('en-US', {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    });
+  }
 
-      if (field === 'conv_rate' || field === 'scroll') {
-        return `${Number(value).toFixed(2)}`;
-      }
+  if (field === 'conv_rate') {
+    return `${Number(value).toFixed(2)}`;
+  }
 
-      if (['unique_visit', 'total_loghsr', 'purchases'].includes(field)) {
-        const num = parseInt(value);
-        if (num >= 1000000) {
-          return (num / 1000000).toFixed(1) + 'M';
-        }
-        if (num >= 1000) {
-          return (num / 1000).toFixed(1) + 'K';
-        }
-        return num.toString();
-      }
+  if (field === 'scroll') {
+    return `${Math.floor(value)}%`;
+  }
 
-      return value;
-    },
+  if (['unique_visit', 'total_loghsr', 'purchases'].includes(field)) {
+    return parseInt(value).toLocaleString('en-US');
+  }
+
+  return value;
+},
 
     isCurrency(field) {
       return ['rps', 'total_rev', 'aov'].includes(field)
@@ -1767,7 +1812,7 @@ body,
 
 /* total styling */
 .new_dashboard_table_summary-section {
-  margin: 20px;
+  margin: 20px 0px 20px 0px;
   padding: 0 28px;
 }
 
