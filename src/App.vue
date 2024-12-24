@@ -882,6 +882,7 @@ toggleSort(column) {
     },
 
     dragStart(index, event) {
+      event.dataTransfer.effectAllowed = 'move';
   if (!event.target.closest('.new_dashboard_table_header-cell')) {
     event.preventDefault();
     return;
@@ -1942,5 +1943,29 @@ body,
 
 .new_dashboard_table_column-dragging .header-arrow-icon {
   opacity: 0;
+}
+
+/* Customize scrollbar width and track */
+.new_dashboard_table_scrollable-wrapper::-webkit-scrollbar {
+  height: 24px;
+}
+
+.new_dashboard_table_scrollable-wrapper::-webkit-scrollbar-track {
+  background: #f5f5f5;
+  border-radius: 8px;
+}
+
+.new_dashboard_table_scrollable-wrapper::-webkit-scrollbar-thumb {
+  background-image: url("data:image/svg+xml,%3Csvg width='72' height='24' viewBox='0 0 72 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg filter='url(%23filter0_d_4510_7839)'%3E%3Crect x='4' y='2' width='64' height='16' rx='8' fill='white'/%3E%3Crect x='4.5' y='2.5' width='63' height='15' rx='7.5' stroke='%23D5D7DA'/%3E%3Cpath d='M30 7L30 13' stroke='%23079455' stroke-linecap='round'/%3E%3Cpath d='M34 7L34 13' stroke='%23079455' stroke-linecap='round'/%3E%3Cpath d='M38 7L38 13' stroke='%23079455' stroke-linecap='round'/%3E%3Cpath d='M42 7L42 13' stroke='%23079455' stroke-linecap='round'/%3E%3C/g%3E%3Cdefs%3E%3Cfilter id='filter0_d_4510_7839' x='0' y='0' width='72' height='24' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' result='hardAlpha'/%3E%3CfeOffset dy='2'/%3E%3CfeGaussianBlur stdDeviation='2'/%3E%3CfeComposite in2='hardAlpha' operator='out'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0'/%3E%3CfeBlend mode='normal' in2='BackgroundImageFix' result='effect1_dropShadow_4510_7839'/%3E%3CfeBlend mode='normal' in='SourceGraphic' in2='effect1_dropShadow_4510_7839' result='shape'/%3E%3C/filter%3E%3C/defs%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  border: none;
+  cursor: grabbing;
+  background-color: #2ec666;
+}
+
+.new_dashboard_table_scrollable-wrapper::-webkit-scrollbar-thumb:hover {
+  opacity: 0.8;
 }
 </style>
