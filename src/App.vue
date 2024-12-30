@@ -195,7 +195,7 @@
                   {{ row[column.field] }}
                 </a>
                 <div class="new_dashboard_table_resizer-column" @mousedown.prevent="initResize($event)">
-                  <template v-if="rowIndex === 2">
+                  <template v-if="rowIndex === Math.floor((pageSize - 1) / 2)">
                     <svg width="8" height="53" viewBox="0 0 8 53" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <rect width="8" height="53" fill="#eaeaea" />
                       <path d="M6 13L6 35" stroke="#363636" stroke-linecap="round" />
