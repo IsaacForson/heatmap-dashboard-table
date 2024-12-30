@@ -336,6 +336,16 @@ export default {
   components: {
     VideoModal
   },
+  props: {
+    pageSize: {
+      type: Number,
+      default: 6
+    },
+    idSite: {
+      type: Number,
+      default: 4
+    }
+  },
   data() {
     return {
       showSummary: false,
@@ -359,7 +369,7 @@ export default {
       videoSource: "https://player.vimeo.com/video/836887438?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
       baseUrl : window.location.origin + '/',
       currentPage: 1,
-      itemsPerPage: 6,
+      // itemsPerPage: 6,
       showVideoModal: false,
       tooltipClicked: false,
       activeTooltip: null,
@@ -408,15 +418,15 @@ export default {
     return this.searchQuery && this.tableData.length === 0;
   },
 
-    paginatedData() {
-      const start = (this.currentPage - 1) * this.itemsPerPage;
-      const end = start + this.itemsPerPage;
-      return this.tableData.slice(start, end);
-    },
+  paginatedData() {
+    const start = (this.currentPage - 1) * this.pageSize;
+    const end = start + this.pageSize;
+    return this.tableData.slice(start, end);
+  },
 
-    totalPages() {
-      return Math.ceil(this.tableData.length / this.itemsPerPage);
-    },
+  totalPages() {
+    return Math.ceil(this.tableData.length / this.pageSize);
+  },
 
     displayedPageNumbers() {
   if (this.totalPages <= 9) {
@@ -566,9 +576,11 @@ export default {
     },
 
     getIdSite() {
-      const urlParams = new URLSearchParams(window.location.search);
-      return urlParams.get('idSite') || '4';
-    },
+  if (this.idSite) {
+    return this.idSite.toString();
+  }
+  const urlParams = new URLSearchParams(window.location.search);
+},
 
     getToken() {
       return localStorage.getItem('heatUserId') || 'baf71b8456d38060806a34e1f2e5a555';
@@ -688,8 +700,7 @@ nextPageGroup() {
     async fetchHeatmapData() {
   this.isLoading = true;
   try {
-    const urlParams = new URLSearchParams(window.location.search);
-    const idSite = urlParams.get('idSite') || 4;
+    const idSite = this.getIdSite();
     const response = await fetch('https://hmd.heatmap.com/root', {
       method: 'POST',
       body: JSON.stringify({
@@ -699,7 +710,7 @@ nextPageGroup() {
         request: "portal"
       })
     });
-
+    
     const data = await response.json();
 
     // Update summary data
@@ -1102,6 +1113,7 @@ dragOver(event, overIndex) {
   }
 }
 </script>
+
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
@@ -1946,7 +1958,7 @@ body,
 }
 
 /* Customize scrollbar width and track */
-.new_dashboard_table_scrollable-wrapper::-webkit-scrollbar {
+/* .new_dashboard_table_scrollable-wrapper::-webkit-scrollbar {
   height: 24px;
 }
 
@@ -1967,5 +1979,5 @@ body,
 
 .new_dashboard_table_scrollable-wrapper::-webkit-scrollbar-thumb:hover {
   opacity: 0.8;
-}
+} */
 </style>
